@@ -54,7 +54,6 @@
 </details>
 
 _Want to talk or collaborate on a projecct, contact me through my gmail!_
-<img align="center" src="https://visitor-badge.glitch.me/badge?page_id=laplaceXD.visitor-badge">
 
 [twitter]: https://twitter.com/xdlegacy_
 [instagram]: https://instagram.com/xdLegacy_

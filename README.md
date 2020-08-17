@@ -5,7 +5,6 @@
 [<img align="left" alt="LaplaceXD | Leetcode" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/leetcode.svg" />][leetcode]
 [<img align="left" alt="LaplaceXD | Twitter" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg" />][twitter]
 [<img align="left" alt="LaplaceXD | Instagram" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/instagram.svg" />][instagram]
-<img align="left" src="https://visitor-badge.glitch.me/badge?page_id=laplaceXD.visitor-badge" />
 
 ---
 
@@ -54,6 +53,7 @@
 </details>
 
 _Want to talk or collaborate on a projecct, contact me through my gmail!_
+<img align="left" src="https://visitor-badge.glitch.me/badge?page_id=laplaceXD.visitor-badge" />
 
 [twitter]: https://twitter.com/xdlegacy_
 [instagram]: https://instagram.com/xdLegacy_

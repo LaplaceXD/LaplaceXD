@@ -10,7 +10,7 @@
 -   🥅 My goals for 2020 is to become a fullstack web-developer (or front-end)
 -   🌱 I'm also looking into Data Science and Game Development
 -   ⚡ I also play games on my spare time
--   👋 I'm also looking into contributing to opensource projects this year 
+-   👋 I'm also looking into contributing to opensource projects this year
 
 ### Connect with me:
 
@@ -30,6 +30,7 @@
 <img align="left" alt="GitHub" width="26px" src="https://raw.githubusercontent.com/github/explore/78df643247d429f6cc873026c0622819ad797942/topics/github/github.png" />
 
 <br />
+
 ---
 
 <details>

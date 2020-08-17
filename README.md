@@ -10,15 +10,26 @@
 
 ## I'm a High School student looking into Web Development
 
--   🌱 I’m currently learning everything 🤣
--   🥅 My goals for 2020 is to become a fullstack web-developer (or front-end)
--   🌱 I'm also looking into Data Science and Game Development
+### 📖 About Me:
+
+---
+
+-   🎓 I'm a highschool student.
+-   💼 I'm planning to become a Full-stack WebDeveloper or a Chemical Engineer (or Both? 😶).
+-   😋 I love to eat.
+-   😎 When my interest is piqued, I don't stop until it is satiated.
+-   👽 I enjoy problem solving, since I'm quite accustomed to Math.
 -   ⚡ I also play games on my spare time
+
+### ⬆ Currently Doing:
+
+---
+
+-   🌱 I’m currently learning everything 🤣
+-   🥅 My goals for 2020 is to become a fullstack web-developer (or front-end 😶)
+-   🔭 I'm also looking into Data Science and Game Development
 -   👋 I'm also looking into contributing to opensource projects this year
-
-### Connect with me:
-
-
+-   🎯 But, right now I'm just learning the advanced topics of Javascript.
 
 <br />
 
@@ -47,13 +58,7 @@
 
 ---
 
-<p align="center">
-
-*Want to talk or collaborate on a projecct, contact me!*
-
-
-
-</p>
+_Want to talk or collaborate on a projecct, contact me through my gmail!_
 
 [twitter]: https://twitter.com/xdlegacy_
 [instagram]: https://instagram.com/xdLegacy_

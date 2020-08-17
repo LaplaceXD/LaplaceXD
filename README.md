@@ -12,8 +12,6 @@
 
 ### 📖 About Me:
 
----
-
 -   🎓 I'm a highschool student.
 -   💼 I'm planning to become a Full-stack WebDeveloper or a Chemical Engineer (or Both? 😶).
 -   😋 I love to eat.
@@ -22,8 +20,6 @@
 -   ⚡ I also play games on my spare time
 
 ### ⬆ Currently Doing:
-
----
 
 -   🌱 I’m currently learning everything 🤣
 -   🥅 My goals for 2020 is to become a fullstack web-developer (or front-end 😶)

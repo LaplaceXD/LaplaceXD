@@ -15,11 +15,11 @@
 
 <img align="right" src="https://media.giphy.com/media/l41JMXnXn4E7WQR8s/giphy.gif" alt="Rick Popping Up" title="RICKKKKKKKKKKK"/>
 
+-   🎓 I'm a highschool student.
 -   💼 I'm planning to become a Full-stack WebDeveloper or a Chemical Engineer (or Both? 😶).
 -   😎 When my interest is piqued, I don't stop until it is satiated.
 -   👽 I enjoy problem solving, since I'm quite accustomed to Math.
 -   ⚡ I also play games on my spare time
--   🎓 I'm a highschool student.
 -   😋 I love to eat.
 
 ### ⬆ Currently Doing:
@@ -54,7 +54,7 @@
 </details>
 
 _Want to talk or collaborate on a projecct, contact me through my gmail!_
-<img align="left" src="https://visitor-badge.glitch.me/badge?page_id=laplaceXD.visitor-badge">
+<img align="center" src="https://visitor-badge.glitch.me/badge?page_id=laplaceXD.visitor-badge">
 
 [twitter]: https://twitter.com/xdlegacy_
 [instagram]: https://instagram.com/xdLegacy_

@@ -8,11 +8,9 @@
 
 ---
 
-## I'm a High School student looking into Web Development
+## I'm just your Average Joe, that had stumbled upon the intricacie of Programming
 
 ### 📖 About Me:
-
----
 
 -   🎓 I'm a highschool student.
 -   💼 I'm planning to become a Full-stack WebDeveloper or a Chemical Engineer (or Both? 😶).
@@ -23,15 +21,13 @@
 
 ### ⬆ Currently Doing:
 
----
-
 -   🌱 I’m currently learning everything 🤣
 -   🥅 My goals for 2020 is to become a fullstack web-developer (or front-end 😶)
 -   🔭 I'm also looking into Data Science and Game Development
 -   👋 I'm also looking into contributing to opensource projects this year
 -   🎯 But, right now I'm just learning the advanced topics of Javascript.
 
-<br />
+---
 
 ### Languages and Tools:
 

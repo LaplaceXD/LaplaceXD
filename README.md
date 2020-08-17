@@ -8,9 +8,11 @@
 
 ---
 
-## I'm just your Average Joe, that had stumbled upon the intricacie of Programming
+## I'm just your Average Joe, that had stumbled upon Programming
 
 ### 📖 About Me:
+
+---
 
 -   🎓 I'm a highschool student.
 -   💼 I'm planning to become a Full-stack WebDeveloper or a Chemical Engineer (or Both? 😶).
@@ -21,13 +23,15 @@
 
 ### ⬆ Currently Doing:
 
+---
+
 -   🌱 I’m currently learning everything 🤣
 -   🥅 My goals for 2020 is to become a fullstack web-developer (or front-end 😶)
 -   🔭 I'm also looking into Data Science and Game Development
 -   👋 I'm also looking into contributing to opensource projects this year
 -   🎯 But, right now I'm just learning the advanced topics of Javascript.
 
----
+<br />
 
 ### Languages and Tools:
 
@@ -51,8 +55,6 @@
   <img align="left" alt="LaplaceXD's Github Stats" src="https://github-readme-stats.vercel.app/api?username=LaplaceXD&show_icons=true&hide_border=true" />
 
 </details>
-
----
 
 _Want to talk or collaborate on a projecct, contact me through my gmail!_
 

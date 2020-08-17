@@ -11,6 +11,8 @@
 
 ## I'm just your Average Joe, that had stumbled upon Programming
 
+<img align="right" src="https://media.giphy.com/media/l41JMXnXn4E7WQR8s/giphy.gif" alt="Rick Popping Up" title="RICKKKKKKKKKKK"/>
+
 ### 📖 About Me:
 
 -   🎓 I'm a highschool student.
@@ -19,8 +21,6 @@
 -   😎 When my interest is piqued, I don't stop until it is satiated.
 -   👽 I enjoy problem solving, since I'm quite accustomed to Math.
 -   ⚡ I also play games on my spare time
-
-<img align="right" src="https://media.giphy.com/media/l41JMXnXn4E7WQR8s/giphy.gif" alt="Rick Popping Up" title="RICKKKKKKKKKKK"/>
 
 ### ⬆ Currently Doing:
 

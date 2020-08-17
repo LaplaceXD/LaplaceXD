@@ -1,3 +1,5 @@
+<img src="https://media.giphy.com/media/l41JMXnXn4E7WQR8s/giphy.gif" alt="Rick Popping Up" title="RICKKKKKKKKKKK"/>
+
 ### Hey there, stranger! I'm Jonh Alexis - aka [LaplaceXD] 👋
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/LaplaceXD?color=1DA1F2&logo=twitter&style=for-the-badge)](https://twitter.com/intent/follow?original_referer=https%3A%2F%2Fgithub.com%2FxdLegacy_&screen_name=xdLegacy_)
@@ -5,6 +7,7 @@
 [<img align="left" alt="LaplaceXD | Leetcode" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/leetcode.svg" />][leetcode]
 [<img align="left" alt="LaplaceXD | Twitter" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg" />][twitter]
 [<img align="left" alt="LaplaceXD | Instagram" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/instagram.svg" />][instagram]
+[<img align="center" src="https://visitor-badge.glitch.me/badge?page_id=jayehernandez.visitor-badge">]
 
 ---
 

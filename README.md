@@ -1,10 +1,9 @@
 ### Hey there, stranger! I'm Jonh Alexis - aka [LaplaceXD] 👋
 
-[![Twitter Follow](https://img.shields.io/twitter/follow/xdLegacy_?color=1DA1F2&logo=twitter&style=for-the-badge)](https://twitter.com/intent/follow?original_referer=https%3A%2F%2Fgithub.com%2FxdLegacy_&screen_name=xdLegacy_)
+[![Twitter Follow](https://img.shields.io/twitter/follow/laplace_code?color=1DA1F2&logo=twitter&style=for-the-badge)](https://twitter.com/intent/follow?original_referer=https%3A%2F%2Fgithub.com%2FxdLegacy_&screen_name=laplace_code)
 [<img align="left" alt="LaplaceXD | Reddit" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/reddit.svg" />][reddit]
 [<img align="left" alt="LaplaceXD | Leetcode" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/leetcode.svg" />][leetcode]
 [<img align="left" alt="LaplaceXD | Twitter" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg" />][twitter]
-[<img align="left" alt="LaplaceXD | Instagram" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/instagram.svg" />][instagram]
 
 ---
 
@@ -57,7 +56,6 @@
 
 _Want to talk or collaborate on a projecct, contact me through my gmail!_
 
-[twitter]: https://twitter.com/xdlegacy_
-[instagram]: https://instagram.com/xdLegacy_
+[twitter]: https://twitter.com/laplace_code
 [reddit]: reddit.com/user/CreatedXLL
 [leetcode]: https://leetcode.com/laplace-/

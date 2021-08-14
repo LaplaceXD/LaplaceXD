@@ -13,8 +13,7 @@
 
 <img align="right" src="https://media.giphy.com/media/l41JMXnXn4E7WQR8s/giphy.gif" alt="Rick Popping Up" title="RICKKKKKKKKKKK"/>
 
--   🎓 I'm a highschool student.
--   💼 I'm planning to become a Full-stack WebDeveloper or a Chemical Engineer (or Both? 😶).
+-   🎓 I'm currently taking up a Bachelor of Science in Computer Science.
 -   😎 When my interest is piqued, I don't stop until it is satiated.
 -   👽 I enjoy problem solving, since I'm quite accustomed to Math.
 -   ⚡ I also play games on my spare time

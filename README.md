@@ -22,7 +22,7 @@
 ### ⬆ Currently Doing:
 
 -   🌱 I’m currently learning everything 🤣
--   🥅 My goals for 2020 is to become a fullstack web-developer (or front-end 😶)
+-   🥅 My goals for 2021 is to find a job, since the best way to learn is to work
 -   🔭 I'm also looking into Data Science and Game Development
 -   👋 I'm also looking into contributing to opensource projects this year
 -   🎯 But, right now I'm just learning the advanced topics of Javascript.

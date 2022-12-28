@@ -46,7 +46,7 @@
   
 </details>
 
-_Want to talk or collaborate on a projecct, contact me through [ja.buotph@gmail.com](mailto:ja.buotph@gmail.com)!_
+_Want to talk or collaborate on a project, contact me through [ja.buotph@gmail.com](mailto:ja.buotph@gmail.com)!_
 
 [linkedin]: https://www.linkedin.com/in/laplace-xd/
 [leetcode]: https://leetcode.com/laplace-/

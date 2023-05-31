@@ -1,9 +1,7 @@
 # Hey there, stranger! I'm Jonh Alexis - aka [LaplaceXD] 👋
 
-[<img align="left" alt="LaplaceXD | Leetcode" width="24px" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" />][leetcode]
-[<img align="left" alt="LaplaceXD | LinkedIn" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" />][linkedin]
-
-<br>
+[<img alt="LeetCode" src="https://img.shields.io/badge/LeetCode--_.svg?style=social&logo=leetcode" />][leetcode]
+[<img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn--_.svg?style=social&logo=linkedin" />][linkedin]
 
 ## I'm just your Average Joe, that had stumbled upon Programming
 
@@ -26,14 +24,14 @@
 
 ### 💻 Languages and Tools:
 
-| **Languages**                |[<img align="left" alt="HTML5" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" />][HTML5][<img align="left" alt="CSS3" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" />][CSS3][<img align="left" alt="Javascript" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" />][JS][<img align="left" alt="Typescript" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" />][TS][<img align="left" alt="C-language" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" />][C][<img align="left" alt="C-Sharp" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" />][C#][<img align="left" alt="Java" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" />][Java][<img align="left" alt="Python" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" />][Python][<img align="left" alt="PHP" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" />][PHP]|
+| **Languages**                |[<img alt="HTML5" src="https://img.shields.io/badge/HTML5--_.svg?style=social&logo=html5" />][HTML5] [<img alt="CSS3" src="https://img.shields.io/badge/CSS3--_.svg?style=social&logo=css3" />][CSS3] [<img alt="JavaScript" src="https://img.shields.io/badge/JavaScript--_.svg?style=social&logo=javascript" />][JS] [<img alt="TypeScript" src="https://img.shields.io/badge/TypeScript--_.svg?style=social&logo=typescript" />][TS] [<img alt="C" src="https://img.shields.io/badge/C--_.svg?style=social&logo=c" />][C] [<img alt="CSharp" src="https://img.shields.io/badge/CSharp--_.svg?style=social&logo=csharp" />][C#] [<img alt="PHP" src="https://img.shields.io/badge/PHP--_.svg?style=social&logo=php" />][PHP]|
 |           :---               |:--- |
-| **Frameworks and Libraries** |[<img align="left" alt="ReactJS" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" />][ReactJS][<img align="left" alt="Next.js" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg" />][Next.js][<img align="left" alt="ExpressJS" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg" />][ExpressJS][<img align="left" alt="Node.js" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" />][Node.js][<img align="left" alt="SASS" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" />][SASS][<img align="left" alt="SASS" width="32px" src="https://styled-components.com/logo.png" />][Styled-Components]|
-| **Databases**                |[<img align="left" alt="MySQL" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" />][MySQL][<img align="left" alt="MSSQL" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/microsoftsqlserver/microsoftsqlserver-plain-wordmark.svg" />][MSSQL][<img align="left" alt="MongoDB" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" />][MongoDB][<img align="left" alt="Redis" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original.svg" />][Redis]|
-| **Hosting and Deployment**   |[<img align="left" alt="Vercel" width="32px" src="https://user-images.githubusercontent.com/67273056/209803195-4c4c9cd3-91c4-4f50-91b0-4cd50e29ad4d.png" />][Vercel]|
-| **Web Security Tools**       |[<img align="left" alt="Burp Suite" width="32px" src="https://user-images.githubusercontent.com/67273056/209801637-9fed8a63-a8a1-42ce-b9d9-fd3454e1bee0.png" />][Burp][<img align="middle" alt="Frida" width="32px" src="https://frida.re/img/logotype.svg" />][Frida][<img align="left" alt="Postman" width="32px" src="https://res.cloudinary.com/postman/image/upload/t_team_logo/v1629869194/team/2893aede23f01bfcbd2319326bc96a6ed0524eba759745ed6d73405a3a8b67a8" />][Postman]|
-| **Package Managers**          |[<img align="left" alt="NPM" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/npm/npm-original-wordmark.svg" />][NPM][<img align="left" alt="Yarn" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/yarn/yarn-original.svg" />][Yarn]|
-| **Others**                   |[<img align="left" alt="Visual Studio Code" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" />][VSCode][<img align="left" alt="Git" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" />][Git][<img align="left" alt="GitHub" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" />][GitHub][<img align="left" alt="Figma" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg" />][Figma][<img align="left" alt="Unity" width="32px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/unity/unity-original.svg" />][Unity][<img align="left" alt="Xampp" width="32px" src="https://seeklogo.com/images/X/xampp-logo-1C1A9E3689-seeklogo.com.png" />][Xampp][<img align="left" alt="Cisco Packet Tracer" width="32px" src="https://filecr.com/wp-content/uploads/2020/10/Cisco-Packet-Tracer.png" />][PacketTracer]|
+| **Frontend** |[<img alt="React" src="https://img.shields.io/badge/React--_.svg?style=social&logo=react" />][React] [<img alt="Next.js" src="https://img.shields.io/badge/Next.js--_.svg?style=social&logo=nextdotjs" />][Next.js] [<img alt="Sass" src="https://img.shields.io/badge/Sass--_.svg?style=social&logo=sass" />][Sass] [<img alt="Expo" src="https://img.shields.io/badge/Expo--_.svg?style=social&logo=expo" />][Expo] [<img alt="Xamarin" src="https://img.shields.io/badge/Xamarin--_.svg?style=social&logo=xamarin" />][Xamarin]|
+| **Backend** |[<img alt="Express" src="https://img.shields.io/badge/Express--_.svg?style=social&logo=express" />][Express] [<img alt="Node.js" src="https://img.shields.io/badge/Node.js--_.svg?style=social&logo=nodedotjs" />][Node.js] [<img alt="Laravel" src="https://img.shields.io/badge/Laravel--_.svg?style=social&logo=laravel" />][Laravel] [<img alt="Firebase" src="https://img.shields.io/badge/Firebase--_.svg?style=social&logo=firebase" />][Firebase]|
+| **Database**                |[<img alt="MySQL" src="https://img.shields.io/badge/MySQL--_.svg?style=social&logo=mysql" />][MySQL] [<img alt="SQLite" src="https://img.shields.io/badge/SQLite--_.svg?style=social&logo=sqlite" />][SQLite] [<img alt="MongoDB" src="https://img.shields.io/badge/MongoDB--_.svg?style=social&logo=mongodb" />][MongoDB] [<img alt="Redis" src="https://img.shields.io/badge/Redis--_.svg?style=social&logo=redis" />][Redis]|
+| **Hosting and Deployment**   |[<img alt="Vercel" src="https://img.shields.io/badge/Vercel--_.svg?style=social&logo=vercel" />][Vercel]|
+| **Web Security**       |[<img alt="Burp Suite" src="https://img.shields.io/badge/Burp%20Suite--_.svg?style=social" />][Burp] [<img alt="Frida" src="https://img.shields.io/badge/Frida--_.svg?style=social" />][Frida] [<img alt="Postman" src="https://img.shields.io/badge/Postman--_.svg?style=social&logo=postman" />][Postman]|
+| **Tools**                   |[<img alt="Visual Studio Code" src="https://img.shields.io/badge/VSCode--_.svg?style=social&logo=visualstudiocode" />][VSCode] [<img alt="Visual Studio" src="https://img.shields.io/badge/VS--_.svg?style=social&logo=visualstudio" />][VS] [<img alt="Git" src="https://img.shields.io/badge/Git--_.svg?style=social&logo=git" />][Git] [<img alt="GitHub" src="https://img.shields.io/badge/GitHub--_.svg?style=social&logo=github" />][GitHub] [<img alt="Figma" src="https://img.shields.io/badge/Figma--_.svg?style=social&logo=figma" />][Figma] [<img alt="Xampp" src="https://img.shields.io/badge/Xampp--_.svg?style=social&logo=xampp" />][Xampp]|
 
 <br />
 
@@ -61,14 +59,18 @@ _Want to talk or collaborate on a project, contact me through [ja.buotph@gmail.c
 [Python]: https://www.python.org/
 [PHP]: https://www.php.net/
 
-[ReactJS]: https://reactjs.org/
+[React]: https://reactjs.org/
 [Next.js]: https://nextjs.org/
-[ExpressJS]: https://expressjs.com/
-[Node.js]: https://expressjs.com/
-[SASS]: https://sass-lang.com/
-[Styled-Components]: https://styled-components.com/
+[Sass]: https://sass-lang.com/
+[Expo]: https://expo.dev/
+[Xamarin]: https://dotnet.microsoft.com/en-us/apps/xamarin
 
-[MSSQL]: https://www.microsoft.com/en-us/sql-server/sql-server-downloads
+[Express]: https://expressjs.com/
+[Node.js]: https://nodejs.org/en
+[Laravel]: https://laravel.com/
+[Firebase]: https://firebase.google.com/
+
+[SQLite]: https://sqlite.org/index.html
 [MySQL]: https://www.mysql.com/
 [MongoDB]: https://www.mongodb.com/
 [Redis]: https://redis.io/
@@ -79,13 +81,9 @@ _Want to talk or collaborate on a project, contact me through [ja.buotph@gmail.c
 [Frida]: https://frida.re/docs/android/
 [Postman]: https://www.postman.com/
 
-[NPM]: https://www.npmjs.com/
-[Yarn]: https://yarnpkg.com/
-
 [VSCode]: https://code.visualstudio.com/
+[VS]: https://visualstudio.microsoft.com/
 [Git]: https://git-scm.com/
 [GitHub]: https://github.com/
 [Figma]: https://www.figma.com/login
-[PacketTracer]: https://www.netacad.com/courses/packet-tracer
 [Xampp]:https://www.apachefriends.org/
-[Unity]: https://unity.com/

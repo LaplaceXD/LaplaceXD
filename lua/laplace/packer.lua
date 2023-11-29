@@ -1,27 +1,27 @@
---false This file can be loaded by calling `lua require('plugins')` from your init.vim
+--false This file can be loaded by calling `lua require("plugins")` from your init.vim
 
 vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function(use)
+return require("packer").startup(function(use)
     -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+    use "wbthomason/packer.nvim"
 
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.4',
-        -- or                          , branch = '0.1.x',
-        requires = { {'nvim-lua/plenary.nvim'} },
+        "nvim-telescope/telescope.nvim", tag = "0.1.4",
+        -- or                          , branch = "0.1.x",
+        requires = { {"nvim-lua/plenary.nvim"} },
         config = function ()
-            local builtin = require('telescope.builtin')
-            vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
-            vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-            vim.keymap.set('n', '<leader>ps', function() 
+            local builtin = require("telescope.builtin")
+            vim.keymap.set("n", "<leader>pf", builtin.find_files, {})
+            vim.keymap.set("n", "<C-p>", builtin.git_files, {})
+            vim.keymap.set("n", "<leader>ps", function() 
                 builtin.grep_string({ search = vim.fn.input("Grep > ") });	
             end)
         end
     }
 
     use {
-        'theprimeagen/harpoon',
+        "theprimeagen/harpoon",
         config = function ()
             local mark = require("harpoon.mark")
             local ui = require("harpoon.ui")
@@ -37,36 +37,36 @@ return require('packer').startup(function(use)
     }
 
     use {
-        'mbbill/undotree',
+        "mbbill/undotree",
         config = function() vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle) end
     }
 
     use {
-        'tpope/vim-fugitive',
+        "tpope/vim-fugitive",
         config = function() vim.keymap.set("n", "<leader>gs", vim.cmd.Git) end
     }
     
     use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+        "nvim-lualine/lualine.nvim",
+        requires = { "nvim-tree/nvim-web-devicons", opt = true },
         config = function ()
-            require('lualine').setup {
+            require("lualine").setup {
                 theme = "material"
             }
         end
     }
 
     use {
-        'marko-cerovac/material.nvim',
-        as = 'material',
+        "marko-cerovac/material.nvim",
+        as = "material",
         config = function ()
-            require('material').setup {
+            require("material").setup {
                 disable = {
                     background = true
                 }
             }
             
-            vim.g.material_style = 'palenight'
+            vim.g.material_style = "palenight"
             vim.cmd.colorscheme("material")
             vim.api.nvim_set_hl(0, "Normal", { bg = "None" })
             vim.api.nvim_set_hl(0, "NormalFloat", { bg = "None" })
@@ -75,15 +75,17 @@ return require('packer').startup(function(use)
     
     use {
         "folke/trouble.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        opts = {},
+        requires = { "nvim-tree/nvim-web-devicons", opt = true },
+        config = function ()
+            require("trouble").setup({})
+        end
     }
 
     use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate',
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSUpdate",
         config = function ()
-            require'nvim-treesitter.configs'.setup {
+            require"nvim-treesitter.configs".setup {
                 ensure_installed = { "html", "css", "javascript", 
                 "typescript", "go", "python", "c","markdown_inline",
                 "json", "lua" },
@@ -99,25 +101,25 @@ return require('packer').startup(function(use)
         end
     }
 
-    use 'nvim-treesitter/playground'
+    use "nvim-treesitter/playground"
 
     use {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v3.x',
+        "VonHeikemen/lsp-zero.nvim",
+        branch = "v3.x",
         requires = {
             --- Uncomment these if you want to manage LSP servers from neovim
-            {'williamboman/mason.nvim'},
-            {'williamboman/mason-lspconfig.nvim'},
+            {"williamboman/mason.nvim"},
+            {"williamboman/mason-lspconfig.nvim"},
 
             -- LSP Support
-            {'neovim/nvim-lspconfig'},
+            {"neovim/nvim-lspconfig"},
             -- Autocompletion
-            {'hrsh7th/nvim-cmp'},
-            {'hrsh7th/cmp-nvim-lsp'},
-            {'L3MON4D3/LuaSnip'},
+            {"hrsh7th/nvim-cmp"},
+            {"hrsh7th/cmp-nvim-lsp"},
+            {"L3MON4D3/LuaSnip"},
         },
         config = function()
-            local lsp_zero = require('lsp-zero')
+            local lsp_zero = require("lsp-zero")
 
             lsp_zero.on_attach(function(client, bufnr)
                 local opts = { buffer = bufnr, remap = false }
@@ -134,40 +136,40 @@ return require('packer').startup(function(use)
                 vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
             end)
 
-            require('mason').setup({})
-            require('mason-lspconfig').setup({
+            require("mason").setup({})
+            require("mason-lspconfig").setup({
                 ensure_installed = {
-                    'clangd',
-                    'lua_ls',
-                    'gopls',
-                    'tsserver',
-                    'html',
-                    'cssls',
-                    'eslint',
-                    'tailwindcss',
-                    'pyright'
+                    "clangd",
+                    "lua_ls",
+                    "gopls",
+                    "tsserver",
+                    "html",
+                    "cssls",
+                    "eslint",
+                    "tailwindcss",
+                    "pyright"
                 },
                 handlers = {
                     lsp_zero.default_setup,
                 }
             })
 
-            local cmp = require 'cmp'
+            local cmp = require "cmp"
             local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
             cmp.setup({
                 sources = {
-                    {name = 'path'},
-                    {name = 'nvim_lsp'},
-                    {name = 'nvim_lua'},
+                    {name = "path"},
+                    {name = "nvim_lsp"},
+                    {name = "nvim_lua"},
                 },
                 formatting = lsp_zero.cmp_format(),
                 mapping = cmp.mapping.preset.insert({
-                    ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-                    ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-                    ['<Tab>'] = cmp.mapping.confirm({ select = true }),
-                    ['<CR>'] = cmp.mapping.confirm({ select = true }),
-                    ['<C-space>'] = cmp.mapping.complete(),
+                    ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+                    ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+                    ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+                    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+                    ["<C-space>"] = cmp.mapping.complete(),
                 }),
                 window = {
                     completion = cmp.config.window.bordered(),
@@ -178,17 +180,17 @@ return require('packer').startup(function(use)
     }
 
     use {
-        'lewis6991/gitsigns.nvim',
+        "lewis6991/gitsigns.nvim",
         config = function ()
-            require('gitsigns').setup()
+            require("gitsigns").setup()
         end
     }
 
     -- requires nvim 0.10 which is still experimental
     -- use {
-    --     'Bekaboo/dropbar.nvim',
+    --     "Bekaboo/dropbar.nvim",
     --     requires = {
-    --         'nvim-telescope/telescope-fzf-native.nvim'
+    --         "nvim-telescope/telescope-fzf-native.nvim"
     --     }
     -- }
 end)

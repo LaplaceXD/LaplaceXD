@@ -18,8 +18,12 @@ vim.keymap.set("n", "<C-d>", "yyp")
 vim.keymap.set("i", "<C-d>", "<Esc>yypi")
 vim.keymap.set("v", "<C-d>", "y'<Pgv")
 
+-- Indentation on Selection
+vim.keymap.set("v", "<Tab>", "<C->>gv")
+vim.keymap.set("v", "<S-Tab>", "<C-<>gv")
+
 -- Commenting lines
--- Unfortunately, this one was quite hard
+-- You need to configure https://github.com/tomtom/tcomment_vim
 
 -- Just removes spaces below a line
 vim.keymap.set("n", "J", "mzJ`z")

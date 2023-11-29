@@ -21,14 +21,6 @@ return require('packer').startup(function(use)
     }
 
     use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true },
-        config = function ()
-            require('lualine').setup()
-        end
-    }
-
-    use {
         'theprimeagen/harpoon',
         config = function ()
             local mark = require("harpoon.mark")
@@ -53,21 +45,34 @@ return require('packer').startup(function(use)
         'tpope/vim-fugitive',
         config = function() vim.keymap.set("n", "<leader>gs", vim.cmd.Git) end
     }
+    
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+        config = function ()
+            require('lualine').setup {
+                theme = "material"
+            }
+        end
+    }
 
     use {
         'marko-cerovac/material.nvim',
         as = 'material',
         config = function ()
-            vim.cmd 'colorscheme material'
+            require('material').setup {
+                disable = {
+                    background = true
+                }
+            }
+            
             vim.g.material_style = 'palenight'
-
-            color = color or "material"
-            vim.cmd.colorscheme(color)
+            vim.cmd.colorscheme("material")
             vim.api.nvim_set_hl(0, "Normal", { bg = "None" })
             vim.api.nvim_set_hl(0, "NormalFloat", { bg = "None" })
         end
     }
-
+    
     use {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },

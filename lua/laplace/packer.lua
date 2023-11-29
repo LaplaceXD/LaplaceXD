@@ -177,6 +177,13 @@ return require('packer').startup(function(use)
         end
     }
 
+    use {
+        'lewis6991/gitsigns.nvim',
+        config = function ()
+            require('gitsigns').setup()
+        end
+    }
+
     -- requires nvim 0.10 which is still experimental
     -- use {
     --     'Bekaboo/dropbar.nvim',

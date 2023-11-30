@@ -7,6 +7,54 @@ return require("packer").startup(function(use)
     use "wbthomason/packer.nvim"
 
     use {
+        "mbbill/undotree",
+        config = function() vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle) end
+    }
+    
+    use {
+        "folke/trouble.nvim",
+        requires = { "nvim-tree/nvim-web-devicons" },
+        config = function () 
+            require("trouble").setup {}
+            vim.keymap.set("n", "<leader>xx", function () require("trouble").toggle() end)
+        end
+    }
+
+    use {
+        "tpope/vim-fugitive",
+        config = function() vim.keymap.set("n", "<leader>gs", vim.cmd.Git) end
+    }
+    
+    use {
+        "lewis6991/gitsigns.nvim",
+        config = function () require("gitsigns").setup {} end
+    }
+    
+    -- requires nvim 0.10 which is still experimental
+    -- use {
+    --     "Bekaboo/dropbar.nvim",
+    --     requires = { "nvim-telescope/telescope-fzf-native.nvim" }
+    -- }
+
+    use {
+        "nvim-lualine/lualine.nvim",
+        requires = { "nvim-tree/nvim-web-devicons", opt = true },
+        config = function ()
+            require("lualine").setup { theme = "material" }
+        end
+    }
+
+    use {
+        "marko-cerovac/material.nvim",
+        as = "material",
+        config = function ()
+            require("material").setup { disable = { background = true } }
+            vim.g.material_style = "palenight"
+            vim.cmd.colorscheme("material")
+        end
+    }
+
+    use {
         "nvim-telescope/telescope.nvim", tag = "0.1.4",
         -- or                          , branch = "0.1.x",
         requires = { {"nvim-lua/plenary.nvim"} },
@@ -15,7 +63,7 @@ return require("packer").startup(function(use)
             vim.keymap.set("n", "<leader>pf", builtin.find_files, {})
             vim.keymap.set("n", "<C-p>", builtin.git_files, {})
             vim.keymap.set("n", "<leader>ps", function() 
-                builtin.grep_string({ search = vim.fn.input("Grep > ") });	
+                builtin.grep_string({ search = vim.fn.input("Grep > ") })
             end)
         end
     }
@@ -35,58 +83,13 @@ return require("packer").startup(function(use)
             vim.keymap.set("n", "<C-s>", function() ui.nav_file(4) end)
         end
     }
-
-    use {
-        "mbbill/undotree",
-        config = function() vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle) end
-    }
-
-    use {
-        "tpope/vim-fugitive",
-        config = function() vim.keymap.set("n", "<leader>gs", vim.cmd.Git) end
-    }
     
-    use {
-        "nvim-lualine/lualine.nvim",
-        requires = { "nvim-tree/nvim-web-devicons", opt = true },
-        config = function ()
-            require("lualine").setup {
-                theme = "material"
-            }
-        end
-    }
-
-    use {
-        "marko-cerovac/material.nvim",
-        as = "material",
-        config = function ()
-            require("material").setup {
-                disable = {
-                    background = true
-                }
-            }
-            
-            vim.g.material_style = "palenight"
-            vim.cmd.colorscheme("material")
-            vim.api.nvim_set_hl(0, "Normal", { bg = "None" })
-            vim.api.nvim_set_hl(0, "NormalFloat", { bg = "None" })
-        end
-    }
-    
-    use {
-        "folke/trouble.nvim",
-        requires = { "nvim-tree/nvim-web-devicons", opt = true },
-        config = function ()
-            require("trouble").setup({})
-        end
-    }
-
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
         config = function ()
             require"nvim-treesitter.configs".setup {
-                ensure_installed = { "html", "css", "javascript", 
+                ensure_installed = { "html", "css", "javascript",
                 "typescript", "go", "python", "c","markdown_inline",
                 "json", "lua" },
 
@@ -100,8 +103,6 @@ return require("packer").startup(function(use)
             }
         end
     }
-
-    use "nvim-treesitter/playground"
 
     use {
         "VonHeikemen/lsp-zero.nvim",
@@ -121,7 +122,7 @@ return require("packer").startup(function(use)
         config = function()
             local lsp_zero = require("lsp-zero")
 
-            lsp_zero.on_attach(function(client, bufnr)
+            lsp_zero.on_attach(function(_, bufnr)
                 local opts = { buffer = bufnr, remap = false }
 
                 vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -178,19 +179,4 @@ return require("packer").startup(function(use)
             })
         end
     }
-
-    use {
-        "lewis6991/gitsigns.nvim",
-        config = function ()
-            require("gitsigns").setup()
-        end
-    }
-
-    -- requires nvim 0.10 which is still experimental
-    -- use {
-    --     "Bekaboo/dropbar.nvim",
-    --     requires = {
-    --         "nvim-telescope/telescope-fzf-native.nvim"
-    --     }
-    -- }
 end)

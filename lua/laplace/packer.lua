@@ -121,8 +121,6 @@ return require("packer").startup(function(use)
         end
     }
 
-    use "rafamadriz/friendly-snippets"
-
     use {
         "VonHeikemen/lsp-zero.nvim",
         branch = "v3.x",
@@ -133,10 +131,16 @@ return require("packer").startup(function(use)
 
             -- LSP Support
             {"neovim/nvim-lspconfig"},
+
             -- Autocompletion
             {"hrsh7th/nvim-cmp"},
+            {"hrsh7th/cmp-path"},
             {"hrsh7th/cmp-nvim-lsp"},
             {"L3MON4D3/LuaSnip"},
+            {"saadparwaiz1/cmp_luasnip"},
+            
+            -- Snippets
+            {"rafamadriz/friendly-snippets"}
         },
         config = function()
             local lsp_zero = require("lsp-zero")
@@ -155,7 +159,8 @@ return require("packer").startup(function(use)
                 vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
                 vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
             end)
-
+    
+            -- Configure LSPs
             require("mason").setup({})
             require("mason-lspconfig").setup({
                 ensure_installed = {
@@ -173,7 +178,11 @@ return require("packer").startup(function(use)
                     lsp_zero.default_setup,
                 }
             })
-
+            
+            -- Configure Snippets
+            require "luasnip/loaders/from_vscode".lazy_load()
+            
+            -- Configure Autocompletion Suggestions
             local cmp = require "cmp"
             local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
@@ -182,6 +191,12 @@ return require("packer").startup(function(use)
                     {name = "path"},
                     {name = "nvim_lsp"},
                     {name = "nvim_lua"},
+                    {name = "luasnip"}
+                },
+                snippet = {
+                    expand = function(args)
+                        require("luasnip").lsp_expand(args.body)
+                    end
                 },
                 formatting = lsp_zero.cmp_format(),
                 mapping = cmp.mapping.preset.insert({

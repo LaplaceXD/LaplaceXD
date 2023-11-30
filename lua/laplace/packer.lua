@@ -30,6 +30,23 @@ return require("packer").startup(function(use)
         config = function () require("gitsigns").setup {} end
     }
     
+    use {
+        "windwp/nvim-autopairs",
+        config = function () require("nvim-autopairs").setup {} end
+    }
+    
+    use {
+        "windwp/nvim-ts-autotag",
+        config = function () require("nvim-ts-autotag").setup {} end
+    }
+
+    use {
+        "Pocco81/auto-save.nvim",
+        config = function ()
+            require("auto-save").setup { trigger_events = {"InsertLeave", "TextChanged", "FocusLost", "VimLeavePre"} }
+        end
+    }
+
     -- requires nvim 0.10 which is still experimental
     -- use {
     --     "Bekaboo/dropbar.nvim",
@@ -92,7 +109,7 @@ return require("packer").startup(function(use)
                 ensure_installed = { "html", "css", "javascript",
                 "typescript", "go", "python", "c","markdown_inline",
                 "json", "lua" },
-
+                
                 sync_install = false,
                 auto_install = true,
 

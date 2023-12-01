@@ -18,7 +18,9 @@ vim.keymap.set("n", "<C-d>", "yyp")
 vim.keymap.set("i", "<C-d>", "<Esc>yypi")
 vim.keymap.set("v", "<C-d>", "y'<Pgv")
 
--- Indentation on Selection
+-- Indentation
+vim.keymap.set("n", "<Tab>", ">>_")
+vim.keymap.set("n", "<S-Tab>", "<<_")
 vim.keymap.set("v", "<Tab>", "<C->>gv")
 vim.keymap.set("v", "<S-Tab>", "<C-<>gv")
 

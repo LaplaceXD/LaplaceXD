@@ -1,57 +1,9 @@
 --false This file can be loaded by calling `lua require("plugins")` from your init.vim
-
 vim.cmd [[packadd packer.nvim]]
 
 return require("packer").startup(function(use)
     -- Packer can manage itself
     use "wbthomason/packer.nvim"
-
-    use {
-        "mbbill/undotree",
-        config = function() vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle) end
-    }
-    
-    use {
-        "folke/trouble.nvim",
-        requires = { "nvim-tree/nvim-web-devicons" },
-        config = function () 
-            require("trouble").setup {}
-            vim.keymap.set("n", "<leader>xx", function () require("trouble").toggle() end)
-        end
-    }
-
-    use {
-        "tpope/vim-fugitive",
-        config = function() vim.keymap.set("n", "<leader>gs", vim.cmd.Git) end
-    }
-    
-    use {
-        "lewis6991/gitsigns.nvim",
-        config = function () require("gitsigns").setup {} end
-    }
-    
-    use {
-        "windwp/nvim-autopairs",
-        config = function () require("nvim-autopairs").setup {} end
-    }
-    
-    use {
-        "windwp/nvim-ts-autotag",
-        config = function () require("nvim-ts-autotag").setup {} end
-    }
-
-    use {
-        "Pocco81/auto-save.nvim",
-        config = function ()
-            require("auto-save").setup { trigger_events = {"InsertLeave", "TextChanged", "FocusLost", "VimLeavePre"} }
-        end
-    }
-
-    -- requires nvim 0.10 which is still experimental
-    -- use {
-    --     "Bekaboo/dropbar.nvim",
-    --     requires = { "nvim-telescope/telescope-fzf-native.nvim" }
-    -- }
 
     use {
         "nvim-lualine/lualine.nvim",
@@ -69,6 +21,53 @@ return require("packer").startup(function(use)
             vim.g.material_style = "palenight"
             vim.cmd.colorscheme("material")
         end
+    }
+
+    -- requires nvim 0.10 which is still experimental
+    -- use {
+    --     "Bekaboo/dropbar.nvim",
+    --     requires = { "nvim-telescope/telescope-fzf-native.nvim" }
+    -- }
+
+    use {
+        "mbbill/undotree",
+        config = function() vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle) end
+    }
+
+    use {
+        "folke/trouble.nvim",
+        requires = { "nvim-tree/nvim-web-devicons" },
+        config = function ()
+            require("trouble").setup {}
+            vim.keymap.set("n", "<leader>xx", function () require("trouble").toggle() end)
+        end
+    }
+
+    use {
+        "tpope/vim-fugitive",
+        config = function() vim.keymap.set("n", "<leader>gs", vim.cmd.Git) end
+    }
+
+    use {
+        "lewis6991/gitsigns.nvim",
+        config = function () require("gitsigns").setup {} end
+    }
+
+    use {
+        "Pocco81/auto-save.nvim",
+        config = function ()
+            require("auto-save").setup { trigger_events = {"InsertLeave", "TextChanged", "FocusLost", "VimLeavePre"} }
+        end
+    }
+
+    use {
+        "windwp/nvim-autopairs",
+        config = function () require("nvim-autopairs").setup {} end
+    }
+
+    use {
+        "windwp/nvim-ts-autotag",
+        config = function () require("nvim-ts-autotag").setup {} end
     }
 
     use {
@@ -100,7 +99,7 @@ return require("packer").startup(function(use)
             vim.keymap.set("n", "<C-s>", function() ui.nav_file(4) end)
         end
     }
-    
+
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
@@ -109,7 +108,7 @@ return require("packer").startup(function(use)
                 ensure_installed = { "html", "css", "javascript",
                 "typescript", "go", "python", "c","markdown_inline",
                 "json", "lua" },
-                
+
                 sync_install = false,
                 auto_install = true,
 
@@ -138,7 +137,7 @@ return require("packer").startup(function(use)
             {"hrsh7th/cmp-nvim-lsp"},
             {"L3MON4D3/LuaSnip"},
             {"saadparwaiz1/cmp_luasnip"},
-            
+
             -- Snippets
             {"rafamadriz/friendly-snippets"}
         },
@@ -159,7 +158,7 @@ return require("packer").startup(function(use)
                 vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
                 vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
             end)
-    
+
             -- Configure LSPs
             require("mason").setup({})
             require("mason-lspconfig").setup({
@@ -178,10 +177,10 @@ return require("packer").startup(function(use)
                     lsp_zero.default_setup,
                 }
             })
-            
+
             -- Configure Snippets
             require "luasnip/loaders/from_vscode".lazy_load()
-            
+
             -- Configure Autocompletion Suggestions
             local cmp = require "cmp"
             local cmp_select = { behavior = cmp.SelectBehavior.Select }

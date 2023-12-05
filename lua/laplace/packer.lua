@@ -204,7 +204,9 @@ return require("packer").startup(function(use)
                     ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
                     ["<Tab>"] = cmp.mapping.confirm({ select = true }),
                     ["<CR>"] = cmp.mapping.confirm({ select = true }),
-                    ["<C-space>"] = cmp.mapping.complete(),
+                    ["<leader><leader>"] = cmp.mapping(cmp.mapping.complete({
+                        reason = cmp.ContextReason.Auto
+                    }), {"i", "c"}),
                 }),
                 window = {
                     completion = cmp.config.window.bordered(),

@@ -1,3 +1,5 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 format = """
 [](fg:#556FFF)\
 $os\
@@ -25,7 +27,12 @@ $scala\
 [](fg:#4D6D8E bg:#1D1F28)\
 $time\
 [ ](fg:#1D1F28)\
-"""
+\n$character"""
+
+[character]
+success_symbol = "[❯](#B2CCFF)"
+error_symbol = "[❯](#C574DD)"
+vimcmd_symbol = "[❮](#8AFF80)"
 
 [username]
 show_always = true
@@ -34,8 +41,8 @@ style_root = "bg:#556FFF"
 format = '[🎉 $user ]($style)'
 
 [os]
-style = "bg:#C574DD"
 disabled = true
+style = "bg:#C574DD"
 
 [directory]
 style = "bg:#1D1F28"
@@ -120,3 +127,4 @@ disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#1D1F28"
 format = '[ ⏱  $time ]($style)'
+

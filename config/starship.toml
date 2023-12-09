@@ -1,6 +1,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
+[╭─](fg:#646465)\
 [](fg:#556FFF)\
 $os\
 $username\
@@ -27,12 +28,7 @@ $scala\
 [](fg:#4D6D8E bg:#1D1F28)\
 $time\
 [ ](fg:#1D1F28)\
-\n$character"""
-
-[character]
-success_symbol = "[❯](#B2CCFF)"
-error_symbol = "[❯](#C574DD)"
-vimcmd_symbol = "[❮](#8AFF80)"
+\n[╰─](fg:#646465) """
 
 [username]
 show_always = true

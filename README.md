@@ -1,24 +1,29 @@
-# Hey there, stranger! I'm Jonh Alexis - aka [LaplaceXD] 👋
+# Hey there, stranger! 👋
 
 [<img alt="LeetCode" src="https://img.shields.io/badge/LeetCode--_.svg?style=social&logo=leetcode" />][leetcode]
 [<img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn--_.svg?style=social&logo=linkedin" />][linkedin]
 
-## I'm just your Average Joe, that had stumbled upon Programming
+I'm **Jonh Alexis**, your friendly neighborhood (spiderman) developer. You may call me `Lex`, `Alex` (the lion), `Alexis`, or `Jonh`. 
+
+I became a developer simply because of boredom, and now I'm stuck `(AGHHHHHHHHH!)` with it. But, hey it's enjoyable, and well I'm addicted to it now. 
+
+> Fell into the rabbit hole of of Software Engineering, and now I'm just addicted
+
+<img align="center" style="width: 100%;" src="https://preview.redd.it/dvg2ze3jyhn91.gif?width=640&crop=smart&auto=webp&s=1047582b0948cc6c213a7efc09247535103ba627" alt="Cyberpunk" title="Cool stuff."/>
 
 ### 📖 About Me:
 
-<img align="right" src="https://media.giphy.com/media/l41JMXnXn4E7WQR8s/giphy.gif" alt="Rick Popping Up" title="RICKKKKKKKKKKK"/>
-
 -   🎓 I'm currently taking up a Bachelor of Science in Computer Science.
--   😎 When my interest is piqued, I don't stop until it is satiated.
--   👽 I enjoy problem solving, since I'm quite accustomed to Math.
--   ⚡ I also play games on my spare time
--   😋 I love to eat.
+-   😎 I'm a curious cat, so I easily get interested into a lot of things, and well fall into a lot of rabit hole.
+-   👽 I enjoy problem solving, since it makes me feel accomplished. 
+-   ⚡ Aside from coding, I enjoy playing games on my spare time, as well as photography, and editing.
+-   😋 I also enjoy road trips and food trips.
 
 ### ⬆ Currently Doing:
 
--   🌱 I’m currently learning everything 🤣, but specifically ORMs, clean architecture, CI/CD, and web security.
--   🥅 My goal for 2023 is to find a job, since the best way to learn is to work.
+-   🌱 Currently, I'm interested in learning more about optimizing code (I know premature optimization is the root of all evil, but it's fun).
+-   🌱 Also, quite interested in learning Machine Learning and AI for 2024, especially with regards to making Stable Diffusion Videos consistent.
+-   🥅 My goal for 2024 is to find a job (hopefully 🤞), since the best way to learn is to work.
 -   🔭 I'm also looking into Cyber Security and Game Development.
 -   👋 I'm also looking into contributing to open-source projects this year.
 
@@ -31,7 +36,7 @@
 | **Database**                |[<img alt="MySQL" src="https://img.shields.io/badge/MySQL--_.svg?style=social&logo=mysql" />][MySQL] [<img alt="SQLite" src="https://img.shields.io/badge/SQLite--_.svg?style=social&logo=sqlite" />][SQLite] [<img alt="MongoDB" src="https://img.shields.io/badge/MongoDB--_.svg?style=social&logo=mongodb" />][MongoDB] [<img alt="Redis" src="https://img.shields.io/badge/Redis--_.svg?style=social&logo=redis" />][Redis]|
 | **Hosting and Deployment**   |[<img alt="Vercel" src="https://img.shields.io/badge/Vercel--_.svg?style=social&logo=vercel" />][Vercel]|
 | **Web Security**       |[<img alt="Burp Suite" src="https://img.shields.io/badge/Burp%20Suite--_.svg?style=social" />][Burp] [<img alt="Frida" src="https://img.shields.io/badge/Frida--_.svg?style=social" />][Frida] [<img alt="Postman" src="https://img.shields.io/badge/Postman--_.svg?style=social&logo=postman" />][Postman]|
-| **Tools**                   |[<img alt="Visual Studio Code" src="https://img.shields.io/badge/VSCode--_.svg?style=social&logo=visualstudiocode" />][VSCode] [<img alt="Visual Studio" src="https://img.shields.io/badge/VS--_.svg?style=social&logo=visualstudio" />][VS] [<img alt="Git" src="https://img.shields.io/badge/Git--_.svg?style=social&logo=git" />][Git] [<img alt="GitHub" src="https://img.shields.io/badge/GitHub--_.svg?style=social&logo=github" />][GitHub] [<img alt="Figma" src="https://img.shields.io/badge/Figma--_.svg?style=social&logo=figma" />][Figma] [<img alt="Xampp" src="https://img.shields.io/badge/Xampp--_.svg?style=social&logo=xampp" />][Xampp]|
+| **Tools**                   |[<img alt="Visual Studio Code" src="https://img.shields.io/badge/VSCode--_.svg?style=social&logo=visualstudiocode" />][VSCode] [<img alt="Neovim" src="https://img.shields.io/badge/Neovim--_.svg?style=social&logo=neovim" />][Neovim] [<img alt="Git" src="https://img.shields.io/badge/Git--_.svg?style=social&logo=git" />][Git] [<img alt="GitHub" src="https://img.shields.io/badge/GitHub--_.svg?style=social&logo=github" />][GitHub] [<img alt="Figma" src="https://img.shields.io/badge/Figma--_.svg?style=social&logo=figma" />][Figma] [<img alt="Xampp" src="https://img.shields.io/badge/Xampp--_.svg?style=social&logo=xampp" />][Xampp]|
 
 <br />
 
@@ -82,7 +87,7 @@ _Want to talk or collaborate on a project, contact me through [ja.buotph@gmail.c
 [Postman]: https://www.postman.com/
 
 [VSCode]: https://code.visualstudio.com/
-[VS]: https://visualstudio.microsoft.com/
+[Neovim]: https://neovim.io/
 [Git]: https://git-scm.com/
 [GitHub]: https://github.com/
 [Figma]: https://www.figma.com/login

@@ -9,14 +9,11 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
+vim.api.nvim_create_augroup('setIndent', { clear = true })
 vim.api.nvim_create_autocmd('FileType', {
-    pattern = { '*.html', '*.css', '*.scss', '*.yaml', '*.toml', '*.json', '*.ts', '*.tsx', '*.cjs', '*.js', '*.jsx' },
-    callback = function()
-        vim.opt.tabstop = 2
-        vim.opt.softtabstop = 2
-        vim.opt.shiftwidth = 2
-        vim.opt.expandtab = true
-    end
+    group = 'setIndent',
+    pattern = { 'html', 'css', 'scss', 'yaml', 'toml', 'json', 'markdown', 'md', 'typescript', 'typescriptreact', 'javascript', 'javascriptreact', 'jsx', 'tsx'},
+    command = 'setlocal shiftwidth=2 softtabstop=2 tabstop=2'
 })
 
 vim.opt.smartindent = true

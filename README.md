@@ -3,11 +3,9 @@
 [<img alt="LeetCode" src="https://img.shields.io/badge/LeetCode--_.svg?style=social&logo=leetcode" />][leetcode]
 [<img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn--_.svg?style=social&logo=linkedin" />][linkedin]
 
-I'm **Jonh Alexis**, your friendly neighborhood (spiderman) developer. You may call me `Lex`, `Alex` (the lion), `Alexis`, or `Jonh`. 
+I'm **Jonh Alexis**, your friendly neighborhood (spiderman) developer. You may call me `Lex`, `Alex` (the lion), `Alexis`, or `Jonh`.  I became a developer simply because of boredom, and well wanting to take control of the driving force of the digital era.
 
-I became a developer simply because of boredom, and well wanting to take control of the driving force of the digital era. I got to say life has been quite enjoyable, since I learned this.
-
-> Fell into the rabbit hole of of Software Engineering, and now I'm stuch `(AGHHHHHHH!)`
+> Fell into the rabbit hole of of Software Engineering, and now I'm stuck `(AGHHHHHHH!)` and addicted to it.
 
 <img align="center" style="width: 100%;" src="https://cdn.discordapp.com/attachments/897886687789735977/1189204167554760834/download.gif" alt="Cyberpunk" title="Cool stuff."/>
 

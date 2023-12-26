@@ -87,12 +87,22 @@ return require("packer").startup(function(use)
                     use_as_default_explorer = false,
                     permanent_delete = false
                 },
+                mappings = {
+                    go_in       = "L",
+                    go_in_plus  = "l",
+                    go_out      = "H",
+                    go_out_plus = "h",
+                },
                 windows = {
-                    preview = true
-                }
+                    preview = true,
+                    max_number = 4,
+                    width_focus = 25,
+                    width_nofocus = 25,
+                    width_preview = 50
+                },
             }
 
-            vim.keymap.set("n", "<leader>m", ":lua MiniFiles.open()<CR>", { noremap = true, silent = true })
+            vim.keymap.set("n", "<C-o>", ":lua MiniFiles.open()<CR>", { noremap = true, silent = true })
         end
     }
 

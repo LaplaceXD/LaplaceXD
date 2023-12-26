@@ -80,6 +80,23 @@ return require("packer").startup(function(use)
     }
 
     use {
+        "echasnovski/mini.files",
+        config = function()
+            require "mini.files".setup {
+                options = {
+                    use_as_default_explorer = false,
+                    permanent_delete = false
+                },
+                windows = {
+                    preview = true
+                }
+            }
+
+            vim.keymap.set("n", "<leader>m", ":lua MiniFiles.open()<CR>", { noremap = true, silent = true })
+        end
+    }
+
+    use {
         "nvim-telescope/telescope.nvim", tag = "0.1.4",
         -- or                          , branch = "0.1.x",
         requires = { { "nvim-lua/plenary.nvim" } },

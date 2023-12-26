@@ -5,11 +5,11 @@
 
 I'm **Jonh Alexis**, your friendly neighborhood (spiderman) developer. You may call me `Lex`, `Alex` (the lion), `Alexis`, or `Jonh`. 
 
-I became a developer simply because of boredom, and now I'm stuck `(AGHHHHHHHHH!)` with it. But, hey it's enjoyable, and well I'm addicted to it now. 
+I became a developer simply because of boredom, and well wanting to take control of the driving force of the digital era. I got to say life has been quite enjoyable, since I learned this.
 
-> Fell into the rabbit hole of of Software Engineering, and now I'm just addicted
+> Fell into the rabbit hole of of Software Engineering, and now I'm stuch `(AGHHHHHHH!)`
 
-<img align="center" style="width: 100%;" src="https://preview.redd.it/dvg2ze3jyhn91.gif?width=640&crop=smart&auto=webp&s=1047582b0948cc6c213a7efc09247535103ba627" alt="Cyberpunk" title="Cool stuff."/>
+<img align="center" style="width: 100%;" src="https://cdn.discordapp.com/attachments/897886687789735977/1189204167554760834/download.gif" alt="Cyberpunk" title="Cool stuff."/>
 
 ### 📖 About Me:
 

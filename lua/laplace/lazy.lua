@@ -22,6 +22,39 @@ require("lazy").setup({
     },
 
     {
+        "lukas-reineke/indent-blankline.nvim",
+        event = "VeryLazy",
+        main = "ibl",
+        opts = {
+            indent = {
+                char = "▏",
+                tab_char = "▏",
+            },
+            scope = {
+                enabled = true,
+                show_exact_scope = true,
+                show_start = false,
+                show_end = false
+            },
+            exclude = {
+                filetypes = {
+                    "help",
+                    "alpha",
+                    "dashboard",
+                    "neo-tree",
+                    "Trouble",
+                    "trouble",
+                    "lazy",
+                    "mason",
+                    "notify",
+                    "toggleterm",
+                    "lazyterm",
+                },
+            },
+        },
+    },
+
+    {
         "marko-cerovac/material.nvim",
         lazy = false,
         priority = 1000,
@@ -32,6 +65,7 @@ require("lazy").setup({
                     "gitsigns",
                     "harpoon",
                     "lspsaga",
+                    "indent-blankline",
                     "mini",
                     "nvim-cmp",
                     "nvim-web-devicons",

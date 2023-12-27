@@ -218,13 +218,24 @@ require("lazy").setup({
 
 	{
 		"theprimeagen/harpoon",
-		event = "BufEnter",
+		{
+			"<leader>a",
+			function()
+				require("harpoon.mark").add_file()
+			end,
+			desc = "Add a file to harpoon stash",
+			mode = "n",
+		},
+		{
+			"<C-e>",
+			function()
+				require("harpoon.ui").toggle_quick_menu()
+			end,
+			desc = "Open harpoon stash",
+			mode = "n",
+		},
 		config = function()
-			local mark = require("harpoon.mark")
 			local ui = require("harpoon.ui")
-
-			vim.keymap.set("n", "<leader>a", mark.add_file)
-			vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
 
 			vim.keymap.set("n", "<C-h>", function()
 				ui.nav_file(1)

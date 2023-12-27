@@ -30,8 +30,6 @@ require("lazy").setup({
                 plugins = {
                     "gitsigns",
                     "harpoon",
-                    -- "indent-blankline",
-                    -- "rainbow-delimiters",
                     "lspsaga",
                     "mini",
                     "nvim-cmp",
@@ -113,9 +111,7 @@ require("lazy").setup({
     {
         "windwp/nvim-autopairs",
         event = { "BufReadPre", "BufNewFile" },
-        config = function()
-            require("nvim-autopairs").setup({})
-        end
+        opts = {}
     },
 
     {
@@ -125,9 +121,7 @@ require("lazy").setup({
             "tsx", "jsx", "rescript",
             "xml", "php", "markdown", "astro", "glimmer", "handlebars", "hbs"
         },
-        config = function()
-            require("nvim-ts-autotag").setup({})
-        end
+        opts = {}
     },
 
     {
@@ -203,29 +197,40 @@ require("lazy").setup({
         ft = { "markdown" },
     },
 
-	{
+    {
         "nvim-treesitter/nvim-treesitter",
-        event = { "BufReadPre", "BufNewFile" },
-        build = ":TSUpdate",
-        opts  = {
-            ensure_installed = {
-                "html",
-                "css",
-                "javascript",
-                "typescript",
-                "tsx",
-                "go",
-                "python",
-                "c",
-                "markdown",
-                "markdown_inline",
-                "json",
-                "jsonc",
-                "lua"
-            },
-        }
+        event  = { "BufReadPre", "BufNewFile" },
+        lazy   = false,
+        build  = ":TSUpdate",
+        config = function()
+            require("nvim-treesitter.configs").setup({
+                ensure_installed = {
+                    "html",
+                    "css",
+                    "javascript",
+                    "typescript",
+                    "tsx",
+                    "go",
+                    "python",
+                    "c",
+                    "markdown",
+                    "markdown_inline",
+                    "json",
+                    "jsonc",
+                    "lua"
+                },
+
+                sync_install = false,
+                auto_install = true,
+
+                highlight = {
+                    enable = true,
+                    additional_vim_regex_highlighting = false,
+                },
+            })
+        end
     },
-    
+
     {
         "VonHeikemen/lsp-zero.nvim",
         event = { "BufReadPre", "BufNewFile" },

@@ -371,7 +371,7 @@ require("lazy").setup({
             })
 
             -- Configure LSPs
-            require("mason").setup({ ui = { border = "bordered" } })
+            require("mason").setup({ ui = { border = "rounded" } })
             require("mason-lspconfig").setup({
                 ensure_installed = {
                     "clangd",

@@ -329,7 +329,6 @@ require("lazy").setup({
 			require("mason").setup({})
 			require("mason-lspconfig").setup({
 				ensure_installed = {
-					-- LSPs
 					"clangd",
 					"lua_ls",
 					"gopls",
@@ -339,14 +338,6 @@ require("lazy").setup({
 					"eslint",
 					"tailwindcss",
 					"pyright",
-
-					-- Formatters
-					"prettier",
-					"prettierd",
-					"clang-format",
-					"autopep8",
-					"stylua",
-					"goimports",
 				},
 				handlers = {
 					lsp_zero.default_setup,
@@ -355,7 +346,10 @@ require("lazy").setup({
 							-- Need to setup %UserProfile%/AppData/Local/clangd/config.yaml as well
 							-- CompileFlags:
 							--  Compiler: <same-as-query-driver>
-							cmd = { "clangd", "--query-driver=C:\\dev\\msys64\\ucrt64\\bin\\gcc,C:\\dev\\msys64\\ucrt64\\bin\\g++" },
+							cmd = {
+								"clangd",
+								"--query-driver=C:\\dev\\msys64\\ucrt64\\bin\\gcc,C:\\dev\\msys64\\ucrt64\\bin\\g++",
+							},
 						})
 					end,
 				},

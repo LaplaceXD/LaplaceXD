@@ -100,6 +100,8 @@ require("lazy").setup({
         opts = {
             formatters_by_ft = {
                 lua = { "stylua" },
+                c = { "clang-format" },
+                cpp = { "clang-format" },
                 go = { "goimports", "gofmt" },
                 python = { "autopep8" },
                 javascript = { { "prettierd", "prettier" } },

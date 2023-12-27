@@ -45,7 +45,7 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Open Packer File
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/AppData/Local/nvim/lua/laplace/packer.lua<CR>");
+vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/AppData/Local/nvim/lua/laplace/lazy.lua<CR>");
 
 -- Clearfix Movement 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")

@@ -16,6 +16,7 @@ require("lazy").setup({
 
     {
         "nvim-lualine/lualine.nvim",
+        event = "VeryLazy",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = { theme = "material" }
     },
@@ -78,34 +79,54 @@ require("lazy").setup({
     },
 
     {
-        "MunifTanjim/prettier.nvim",
-        dependencies = { "jose-elias-alvarez/null-ls.nvim" },
-        ft = {
-            "css",
-            "graphql",
-            "html",
-            "javascript",
-            "javascriptreact",
-            "json",
-            "less",
-            "markdown",
-            "scss",
-            "typescript",
-            "typescriptreact",
-            "yaml",
+        "stevearc/conform.nvim",
+        event = { "BufWritePre" },
+        cmd = { "ConformInfo" },
+        keys = {
+            {
+                "<leader>f",
+                function()
+                    require("conform").format({ async = true, lsp_fallback = true })
+                end,
+                mode = "n",
+                desc = "Format buffer",
+            },
         },
         opts = {
-            cli_options = {
-                html_whitespace_sensitivity = "ignore",
-                print_width = 120
+            formatters_by_ft = {
+                lua = { "stylua" },
+                go = { "goimports", "gofmt" },
+                python = { "isort", "black" },
+                javascript = { { "prettierd", "prettier" } },
+                javascriptreact = { { "prettierd", "prettier" } },
+                typescript = { { "prettierd", "prettier" } },
+                typescriptreact = { { "prettierd", "prettier" } },
+                vue = { { "prettierd", "prettier" } },
+                css = { { "prettierd", "prettier" } },
+                scss = { { "prettierd", "prettier" } },
+                less = { { "prettierd", "prettier" } },
+                html = { { "prettierd", "prettier" } },
+                json = { { "prettierd", "prettier" } },
+                jsonc = { { "prettierd", "prettier" } },
+                yaml = { { "prettierd", "prettier" } },
+                markdown = { { "prettierd", "prettier" } },
+                ["markdown.mdx"] = { { "prettierd", "prettier" } },
+                graphql = { { "prettierd", "prettier" } },
+                handlebars = { { "prettierd", "prettier" } },
             },
-        }
+            formatters = {
+                prettier = {
+                    command = "prettier",
+                    args = { "--stdin-from-filename", "$FILENAME", "--html-whitespace-sensitivity", "ignore", "--print-width", "120" },
+                }
+            }
+        },
     },
 
     {
         "Pocco81/auto-save.nvim",
-        event = { "BufReadPre", "BufNewFile" },
-        opts = { trigger_events = { "InsertLeave", "TextChanged", "FocusLost", "VimLeavePre" } }
+        event = { "InsertLeave", "FocusLost", "VimLeavePre" },
+        opts = { trigger_events = { "InsertLeave", "FocusLost", "VimLeavePre" } }
     },
 
     {
@@ -155,15 +176,11 @@ require("lazy").setup({
         "nvim-telescope/telescope.nvim",
         lazy = false,
         dependencies = { "nvim-lua/plenary.nvim" },
-        config = function()
-            local builtin = require("telescope.builtin")
-
-            vim.keymap.set("n", "<leader>pf", builtin.find_files)
-            vim.keymap.set("n", "<C-p>", function() builtin.git_files({ show_untracked = true }) end)
-            vim.keymap.set("n", "<leader>ps", function()
-                builtin.grep_string({ search = vim.fn.input("Grep > ") })
-            end)
-        end
+        keys = {
+            { "<leader>pf", "<cmd>Telescope find_files<cr>",                                                               desc = "Find files within Project Directory", mode = "n" },
+            { "<C-p>",      function() require("telescope.builtin").git_files({ show_untracked = true }) end,              desc = "Find Files within Git Directory",     mode = "n" },
+            { "<leader>ps", function() require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") }) end, desc = "Find Files within Git Directory",     mode = "n" }
+        }
     },
 
     {
@@ -261,8 +278,6 @@ require("lazy").setup({
                 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
                 vim.keymap.set("n", "<leader>ws", vim.lsp.buf.workspace_symbol, opts)
                 vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
-                vim.keymap.set({ "n", "x" }, "<leader>f",
-                    function() vim.lsp.buf.format { async = true } end, opts)
                 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
                 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)
                 vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
@@ -325,3 +340,4 @@ require("lazy").setup({
         end
     }
 })
+

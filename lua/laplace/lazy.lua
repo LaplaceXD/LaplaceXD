@@ -114,12 +114,6 @@ require("lazy").setup({
                 graphql = { { "prettierd", "prettier" } },
                 handlebars = { { "prettierd", "prettier" } },
             },
-            formatters = {
-                prettier = {
-                    command = "prettier",
-                    args = { "--stdin-from-filename", "$FILENAME", "--html-whitespace-sensitivity", "ignore", "--print-width", "120" },
-                }
-            }
         },
     },
 

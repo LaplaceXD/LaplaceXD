@@ -201,7 +201,7 @@ require("lazy").setup({
     {
         "echasnovski/mini.files",
         keys = {
-            { "<C-o>", "<cmd>lua MiniFiles.open()<cr>", desc = "Open File Tree", mode = "n" },
+            { "<leader>d", "<cmd>lua MiniFiles.open()<cr>", desc = "Open File Tree", mode = "n" },
         },
         opts = {
             options = {

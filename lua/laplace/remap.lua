@@ -12,10 +12,10 @@ vim.keymap.set("v", "<A-Down>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 
--- Duplicate lines 
-vim.keymap.set("n", "<C-D>", "yyp")
-vim.keymap.set("i", "<C-D>", "<Esc>yypi")
-vim.keymap.set("v", "<C-D>", "y'<Pgv")
+-- Duplicate lines
+vim.keymap.set("n", "<A-d>", "mayyp`aj:delmarks a<cr>")
+vim.keymap.set("i", "<A-d>", "<esc>mayyp`aj:delmarks a<cr>i")
+vim.keymap.set("v", "<A-d>", "y'<Pgv")
 
 -- Indentation
 vim.keymap.set("n", "<Tab>", ">>_")
@@ -44,7 +44,7 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 -- Open Lazy File
 vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/AppData/Local/nvim/lua/laplace/lazy.lua<CR>");
 
--- Clearfix Movement 
+-- Clearfix Movement
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")

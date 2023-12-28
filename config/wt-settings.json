@@ -149,6 +149,7 @@
   "copyFormatting": "none",
   "copyOnSelect": false,
   "defaultProfile": "{d15b228a-05d7-50d1-8472-f60aaba86efc}",
+  "suppressApplicationTitle": true,
   "newTabMenu": 
   [
     {

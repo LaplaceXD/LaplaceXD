@@ -1,0 +1,261 @@
+{
+  "$help": "https://aka.ms/terminal-documentation",
+  "$schema": "https://aka.ms/terminal-profiles-schema",
+  "actions": 
+  [
+    {
+      "command": "find",
+      "keys": "ctrl+shift+f"
+    },
+    {
+      "command": 
+      {
+        "action": "splitPane",
+        "split": "auto",
+        "splitMode": "duplicate"
+      },
+      "keys": "alt+shift+d"
+    },
+    {
+      "command": 
+      {
+        "action": "copy",
+        "singleLine": false
+      },
+      "keys": "ctrl+c"
+    },
+    {
+      "command": 
+      {
+        "action": "switchToTab",
+        "index": 3
+      },
+      "keys": "ctrl+4"
+    },
+    {
+      "command": "paste",
+      "keys": "ctrl+v"
+    },
+    {
+      "command": 
+      {
+        "action": "splitPane",
+        "split": "up"
+      },
+      "keys": "ctrl+up"
+    },
+    {
+      "command": 
+      {
+        "action": "splitPane",
+        "split": "down"
+      },
+      "keys": "ctrl+down"
+    },
+    {
+      "command": "unbound",
+      "keys": "ctrl+alt+1"
+    },
+    {
+      "command": "unbound",
+      "keys": "ctrl+alt+2"
+    },
+    {
+      "command": "unbound",
+      "keys": "ctrl+alt+3"
+    },
+    {
+      "command": "unbound",
+      "keys": "ctrl+alt+4"
+    },
+    {
+      "command": "unbound",
+      "keys": "ctrl+alt+5"
+    },
+    {
+      "command": "unbound",
+      "keys": "ctrl+alt+6"
+    },
+    {
+      "command": "unbound",
+      "keys": "ctrl+alt+7"
+    },
+    {
+      "command": "unbound",
+      "keys": "ctrl+alt+8"
+    },
+    {
+      "command": "unbound",
+      "keys": "ctrl+alt+9"
+    },
+    {
+      "command": "unbound",
+      "keys": "alt+shift+minus"
+    },
+    {
+      "command": "unbound",
+      "keys": "alt+shift+plus"
+    },
+    {
+      "command": 
+      {
+        "action": "switchToTab",
+        "index": 0
+      },
+      "keys": "ctrl+1"
+    },
+    {
+      "command": 
+      {
+        "action": "switchToTab",
+        "index": 1
+      },
+      "keys": "ctrl+2"
+    },
+    {
+      "command": 
+      {
+        "action": "switchToTab",
+        "index": 2
+      },
+      "keys": "ctrl+3"
+    },
+    {
+      "command": 
+      {
+        "action": "splitPane",
+        "split": "right"
+      },
+      "keys": "ctrl+right"
+    },
+    {
+      "command": 
+      {
+        "action": "splitPane",
+        "split": "left"
+      },
+      "keys": "ctrl+left"
+    },
+    {
+      "command": 
+      {
+        "action": "nextTab"
+      },
+      "keys": "ctrl+tab"
+    }
+  ],
+  "startOnUserLogin": true,
+  "tabSwitcherMode": "inOrder",
+  "copyFormatting": "none",
+  "copyOnSelect": false,
+  "defaultProfile": "{d15b228a-05d7-50d1-8472-f60aaba86efc}",
+  "newTabMenu": 
+  [
+    {
+      "type": "remainingProfiles"
+    }
+  ],
+  "profiles": 
+  {
+    "defaults": 
+    {
+      "antialiasingMode": "cleartype",
+      "colorScheme": "lovelace",
+      "compatibility.reloadEnvironmentVariables": true,
+      "cursorShape": "filledBox",
+      "font": 
+      {
+        "cellHeight": "1.4",
+        "face": "JetBrainsMono Nerd Font",
+        "size": 12.0,
+        "weight": "semi-bold"
+      },
+      "historySize": 12000,
+      "intenseTextStyle": "bright",
+      "opacity": 90,
+      "padding": "4",
+      "snapOnInput": true,
+      "startingDirectory": "%USERPROFILE%"
+    },
+    "list": 
+    [
+      {
+        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+        "hidden": false,
+        "name": "Windows PowerShell"
+      },
+      {
+        "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+        "hidden": false,
+        "name": "Command Prompt"
+      },
+      {
+        "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+        "hidden": false,
+        "name": "Azure Cloud Shell",
+        "source": "Windows.Terminal.Azure"
+      },
+      {
+        "commandline": "C:\\Program Files\\Git\\bin\\bash.exe",
+        "guid": "{d15b228a-05d7-50d1-8472-f60aaba86efc}",
+        "hidden": false,
+        "name": "Bash"
+      },
+      {
+        "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+        "hidden": false,
+        "name": "Ubuntu",
+        "source": "Windows.Terminal.Wsl"
+      }
+    ]
+  },
+  "schemes": 
+  [
+    {
+      "background": "#1F2128",
+      "black": "#282A36",
+      "blue": "#8897F4",
+      "brightBlack": "#414458",
+      "brightBlue": "#556FFF",
+      "brightCyan": "#3FDCEE",
+      "brightGreen": "#18E3C8",
+      "brightPurple": "#B043D1",
+      "brightRed": "#FF4971",
+      "brightWhite": "#BEBEC1",
+      "brightYellow": "#FF8037",
+      "cursorColor": "#7CA2FF",
+      "cyan": "#79E6F3",
+      "foreground": "#FFFFFF",
+      "green": "#5ADECD",
+      "name": "lovelace",
+      "purple": "#C574DD",
+      "red": "#F37F97",
+      "selectionBackground": "#C574DD",
+      "white": "#FDFDFD",
+      "yellow": "#F2A272"
+    },
+    {
+      "background": "#1A1A1A",
+      "black": "#121212",
+      "blue": "#2B4FFF",
+      "brightBlack": "#666666",
+      "brightBlue": "#5C78FF",
+      "brightCyan": "#5AC8FF",
+      "brightGreen": "#905AFF",
+      "brightPurple": "#5EA2FF",
+      "brightRed": "#BA5AFF",
+      "brightWhite": "#FFFFFF",
+      "brightYellow": "#685AFF",
+      "cursorColor": "#FFFFFF",
+      "cyan": "#28B9FF",
+      "foreground": "#F1F1F1",
+      "green": "#7129FF",
+      "name": "xcad",
+      "purple": "#2883FF",
+      "red": "#A52AFF",
+      "selectionBackground": "#FFFFFF",
+      "white": "#F1F1F1",
+      "yellow": "#3D2AFF"
+    }
+  ]
+}

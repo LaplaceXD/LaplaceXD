@@ -422,7 +422,6 @@ require("lazy").setup({
 					"tsserver",
 					"html",
 					"cssls",
-					"eslint",
 					"tailwindcss",
 					"pyright",
 				},

@@ -1,15 +1,13 @@
 {
   "$help": "https://aka.ms/terminal-documentation",
   "$schema": "https://aka.ms/terminal-profiles-schema",
-  "actions": 
-  [
+  "actions": [
     {
       "command": "find",
       "keys": "ctrl+shift+f"
     },
     {
-      "command": 
-      {
+      "command": {
         "action": "splitPane",
         "split": "auto",
         "splitMode": "duplicate"
@@ -17,16 +15,14 @@
       "keys": "alt+shift+d"
     },
     {
-      "command": 
-      {
+      "command": {
         "action": "copy",
         "singleLine": false
       },
       "keys": "ctrl+c"
     },
     {
-      "command": 
-      {
+      "command": {
         "action": "switchToTab",
         "index": 3
       },
@@ -37,16 +33,14 @@
       "keys": "ctrl+v"
     },
     {
-      "command": 
-      {
+      "command": {
         "action": "splitPane",
         "split": "up"
       },
       "keys": "ctrl+up"
     },
     {
-      "command": 
-      {
+      "command": {
         "action": "splitPane",
         "split": "down"
       },
@@ -97,48 +91,42 @@
       "keys": "alt+shift+plus"
     },
     {
-      "command": 
-      {
+      "command": {
         "action": "switchToTab",
         "index": 0
       },
       "keys": "ctrl+1"
     },
     {
-      "command": 
-      {
+      "command": {
         "action": "switchToTab",
         "index": 1
       },
       "keys": "ctrl+2"
     },
     {
-      "command": 
-      {
+      "command": {
         "action": "switchToTab",
         "index": 2
       },
       "keys": "ctrl+3"
     },
     {
-      "command": 
-      {
+      "command": {
         "action": "splitPane",
         "split": "right"
       },
       "keys": "ctrl+right"
     },
     {
-      "command": 
-      {
+      "command": {
         "action": "splitPane",
         "split": "left"
       },
       "keys": "ctrl+left"
     },
     {
-      "command": 
-      {
+      "command": {
         "action": "nextTab"
       },
       "keys": "ctrl+tab"
@@ -150,22 +138,18 @@
   "copyOnSelect": false,
   "defaultProfile": "{d15b228a-05d7-50d1-8472-f60aaba86efc}",
   "suppressApplicationTitle": true,
-  "newTabMenu": 
-  [
+  "newTabMenu": [
     {
       "type": "remainingProfiles"
     }
   ],
-  "profiles": 
-  {
-    "defaults": 
-    {
+  "profiles": {
+    "defaults": {
       "antialiasingMode": "cleartype",
       "colorScheme": "lovelace",
       "compatibility.reloadEnvironmentVariables": true,
       "cursorShape": "filledBox",
-      "font": 
-      {
+      "font": {
         "cellHeight": "1.4",
         "face": "JetBrainsMono Nerd Font",
         "size": 12.0,
@@ -178,8 +162,7 @@
       "snapOnInput": true,
       "startingDirectory": "%USERPROFILE%"
     },
-    "list": 
-    [
+    "list": [
       {
         "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
         "hidden": false,
@@ -210,8 +193,7 @@
       }
     ]
   },
-  "schemes": 
-  [
+  "schemes": [
     {
       "background": "#1F2128",
       "black": "#282A36",
@@ -224,7 +206,7 @@
       "brightRed": "#FF4971",
       "brightWhite": "#BEBEC1",
       "brightYellow": "#FF8037",
-      "cursorColor": "#7CA2FF",
+      "cursorColor": "#83C4FF",
       "cyan": "#79E6F3",
       "foreground": "#FFFFFF",
       "green": "#5ADECD",

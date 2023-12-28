@@ -75,9 +75,9 @@ require("lazy").setup({
 					"trouble",
 				},
 				custom_colors = function(colors)
-                    colors.main.black = ""                          -- ensures that the status line has a transparent background
-					colors.main.darkpurple = colors.main.paleblue   -- dark purple is too harsh on the eyes
-                    colors.editor.accent = colors.main.darkpurple
+					colors.main.black = "" -- ensures that the status line has a transparent background
+					colors.main.darkpurple = colors.main.paleblue -- dark purple is too harsh on the eyes
+					colors.editor.accent = colors.main.darkpurple
 				end,
 				disable = {
 					background = true,

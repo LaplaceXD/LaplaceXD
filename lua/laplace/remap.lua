@@ -13,9 +13,9 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 
 -- Duplicate lines 
-vim.keymap.set("n", "<C-d>", "yyp")
-vim.keymap.set("i", "<C-d>", "<Esc>yypi")
-vim.keymap.set("v", "<C-d>", "y'<Pgv")
+vim.keymap.set("n", "<C-D>", "yyp")
+vim.keymap.set("i", "<C-D>", "<Esc>yypi")
+vim.keymap.set("v", "<C-D>", "y'<Pgv")
 
 -- Indentation
 vim.keymap.set("n", "<Tab>", ">>_")
@@ -23,17 +23,14 @@ vim.keymap.set("n", "<S-Tab>", "<<_")
 vim.keymap.set("v", "<Tab>", "<C->>gv")
 vim.keymap.set("v", "<S-Tab>", "<C-<>gv")
 
--- Commenting lines
--- You need to configure https://github.com/tomtom/tcomment_vim
-
 -- Just removes spaces below a line
 vim.keymap.set("n", "J", "mzJ`z")
 
--- Move to next search item, you need to use this in unison with :/<searchstring>
+-- Move to next search item, you need to use this in unison with /<searchstring>
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- Copy paste remap, wherein the remap actually replaces the highlighted content
+-- Copy paste remap, wherein the previously copied item is kept in the register
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- Copy to clipboard along with void register
@@ -44,7 +41,7 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 -- Replace the hovered word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
--- Open Packer File
+-- Open Lazy File
 vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/AppData/Local/nvim/lua/laplace/lazy.lua<CR>");
 
 -- Clearfix Movement 

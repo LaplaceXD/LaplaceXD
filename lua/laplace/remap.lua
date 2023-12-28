@@ -26,6 +26,10 @@ vim.keymap.set("v", "<S-Tab>", "<C-<>gv")
 -- Just removes spaces below a line
 vim.keymap.set("n", "J", "mzJ`z")
 
+-- Traversal in blocks while maintaining cursor position 
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
 -- Move to next search item, you need to use this in unison with /<searchstring>
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")

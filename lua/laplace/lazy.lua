@@ -81,7 +81,6 @@ require("lazy").setup({
 				end,
 				disable = {
 					background = true,
-					eob_lines = true,
 					colored_cursor = true,
 				},
 			})

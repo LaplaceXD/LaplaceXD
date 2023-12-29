@@ -15,6 +15,12 @@ require("lazy").setup({
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
 
 	{
+		"andweeb/presence.nvim",
+		event = "VeryLazy",
+		opts = { main_image = "file" },
+	},
+
+	{
 		"windwp/windline.nvim",
 		event = "VeryLazy",
 		dependencies = { "nvim-tree/nvim-web-devicons" },

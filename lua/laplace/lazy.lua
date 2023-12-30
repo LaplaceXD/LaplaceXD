@@ -30,44 +30,50 @@ require("lazy").setup({
 	},
 
 	{
+		"HiPhish/rainbow-delimiters.nvim",
+		event = "VeryLazy",
+		config = function()
+			vim.g.rainbow_delimiters = { highlight = { "Yellow", "Purple", "Blue" } }
+		end,
+	},
+
+	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = "VeryLazy",
 		main = "ibl",
-		dependencies = { "HiPhish/rainbow-delimiters.nvim" },
-		config = function()
+		opts = {
+			indent = {
+				char = "▏",
+				tab_char = "▏",
+			},
+			scope = {
+				enabled = true,
+				highlight = { "Yellow", "Purple", "Blue" },
+				show_exact_scope = true,
+				show_start = false,
+				show_end = false,
+			},
+			exclude = {
+				filetypes = {
+					"help",
+					"alpha",
+					"dashboard",
+					"neo-tree",
+					"Trouble",
+					"trouble",
+					"lazy",
+					"mason",
+					"notify",
+					"toggleterm",
+					"lazyterm",
+				},
+			},
+		},
+		config = function(_, opts)
+			require("ibl").setup(opts)
+
 			local hooks = require("ibl.hooks")
 			hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
-
-			local highlight = { "Yellow", "Purple", "Blue" }
-			vim.g.rainbow_delimiters = { highlight = highlight }
-			require("ibl").setup({
-				indent = {
-					char = "▏",
-					tab_char = "▏",
-				},
-				scope = {
-					enabled = true,
-					highlight = highlight,
-					show_exact_scope = true,
-					show_start = false,
-					show_end = false,
-				},
-				exclude = {
-					filetypes = {
-						"help",
-						"alpha",
-						"dashboard",
-						"neo-tree",
-						"Trouble",
-						"trouble",
-						"lazy",
-						"mason",
-						"notify",
-						"toggleterm",
-						"lazyterm",
-					},
-				},
-			})
 		end,
 	},
 

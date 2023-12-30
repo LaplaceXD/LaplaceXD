@@ -64,15 +64,15 @@ vim.keymap.set("n", "]d", vim.diagnostic.goto_prev)
 vim.api.nvim_create_autocmd("LspAttach", {
 	desc = "LSP Actions",
 	callback = function(event)
-		local keymaps = {
+		local handlers = {
+			{ "workspace/symbol", "<leader>ws", vim.lsp.buf.workspace_symbol },
 			{ "textDocument/hover", "K", vim.lsp.buf.hover },
 			{ "textDocument/definition", "gd", vim.lsp.buf.definition },
 			{ "textDocument/references", "gr", vim.lsp.buf.references },
 			{ "textDocument/implementation", "gi", vim.lsp.buf.implementation },
 			{ "textDocument/codeAction", "<leader>ca", vim.lsp.buf.code_action },
 			{ "textDocument/rename", "<leader>rn", vim.lsp.buf.rename },
-			{ "textDocument/signatureHelp", "<leader>ca", vim.lsp.buf.signature_help },
-			{ "workspace/symbol", "<leader>ws", vim.lsp.buf.workspace_symbol },
+			{ "textDocument/signatureHelp", "<C-h>", vim.lsp.buf.signature_help },
 		}
 
 		local opts = { buffer = event.buf, remap = false }
@@ -80,7 +80,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		-- unpack is still used in 5.1 which is used in nvim internally even though its deprecated
 		table.unpack = table.unpack or unpack
-		for _, mapping in ipairs(keymaps) do
+		for _, mapping in ipairs(handlers) do
 			local method, key, action = table.unpack(mapping)
 
 			if client.supports_method(method) then
@@ -90,6 +90,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		if client.supports_method("textDocument/hover") then
 			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+				border = "rounded",
+			})
+		end
+
+		if client.supports_method("textDocument/signatureHelp") then
+			vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
 				border = "rounded",
 			})
 		end

@@ -90,7 +90,7 @@ require("lazy").setup({
 					"harpoon",
 					"lspsaga",
 					"indent-blankline",
-                    "rainbow-delimiters",
+					"rainbow-delimiters",
 					"mini",
 					"nvim-cmp",
 					"nvim-web-devicons",
@@ -263,7 +263,10 @@ require("lazy").setup({
 
 	{
 		"nvim-telescope/telescope.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
+		dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "nvim-treesitter/nvim-treesitter" },
+		opts = {
+			path_display = "smart",
+		},
 		keys = {
 			{
 				"<leader>pf",
@@ -397,51 +400,132 @@ require("lazy").setup({
 	},
 
 	{
-		"VonHeikemen/lsp-zero.nvim",
-		event = { "BufReadPre", "BufNewFile" },
-		cmd = { "Mason" },
+		"hrsh7th/nvim-cmp",
+		event = { "InsertEnter" },
+		keys = {
+			{ ":", mode = "n" },
+			{ "?", mode = "n" },
+			{ "/", mode = "n" },
+		},
 		dependencies = {
-			"neovim/nvim-lspconfig",
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
-
-			"hrsh7th/nvim-cmp",
+			"hrsh7th/cmp-cmdline",
 			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+
 			"saadparwaiz1/cmp_luasnip",
 			"L3MON4D3/LuaSnip",
-
 			"rafamadriz/friendly-snippets",
 		},
 		config = function()
-			local lsp_zero = require("lsp-zero")
+			local ok, luasnip = pcall(require, "luasnip.loaders.from_vscode")
 
-			lsp_zero.on_attach(function(_, bufnr)
-				local opts = { buffer = bufnr, remap = false }
+			if ok then
+				luasnip.lazy_load()
+			end
 
-				vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-				vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-				vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-				vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-				vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-				vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-				vim.keymap.set("n", "<leader>ws", vim.lsp.buf.workspace_symbol, opts)
-				vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
-				vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
-				vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)
-				vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
-				vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
-			end)
+			local cmp = require("cmp")
+			local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
-			lsp_zero.set_sign_icons({
-				error = "",
-				warn = "",
-				hint = "⚑",
-				info = "»",
+			local symbols = {
+				Text = "",
+				Method = "",
+				Function = "",
+				Constructor = "",
+				Field = "",
+				Variable = "",
+				Class = "",
+				Interface = "",
+				Module = "",
+				Property = "",
+				Unit = "",
+				Value = "",
+				Enum = "",
+				Keyword = "",
+				Snippet = "",
+				Color = "",
+				File = "",
+				Reference = "",
+				Folder = "",
+				EnumMember = "",
+				Constant = "",
+				Struct = "",
+				Event = "",
+				Operator = "",
+				TypeParameter = "",
+			}
+
+			cmp.setup({
+				sources = cmp.config.sources({
+					{ name = "nvim_lsp" },
+					{ name = "luasnip" },
+					{ name = "buffer" },
+				}),
+				snippet = {
+					expand = function(args)
+						require("luasnip").lsp_expand(args.body)
+					end,
+				},
+				formatting = {
+					fields = { "kind", "abbr", "menu" },
+					format = function(_, item)
+						item.abbr = string.len(item.abbr) > 30 and vim.fn.strcharpart(item.abbr, 0, 27) .. "..."
+							or item.abbr
+						item.menu = item.kind or ""
+						item.kind = symbols[item.kind] or ""
+
+						return item
+					end,
+				},
+				mapping = cmp.mapping.preset.insert({
+					["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+					["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+					["<Tab>"] = cmp.mapping.confirm({ select = true }),
+					["<CR>"] = cmp.mapping.confirm({ select = true }),
+					["<C-Space>"] = cmp.mapping.complete({
+						reason = cmp.ContextReason.Auto,
+					}),
+				}),
+				window = {
+					completion = cmp.config.window.bordered(),
+					documentation = cmp.config.window.bordered(),
+				},
 			})
 
-			-- Configure LSPs
+			cmp.setup.filetype("gitcommit", {
+				sources = cmp.config.sources({ { name = "cmp_git" }, { name = "buffer" } }),
+			})
+
+			cmp.setup.cmdline({ "/", "?" }, {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = { { name = "buffer" } },
+			})
+
+			cmp.setup.cmdline(":", {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = cmp.config.sources({ { name = "path" }, { name = "cmdline" } }),
+			})
+
+			-- transparent background for suggestion windows
+			vim.cmd([[hi Pmenu guibg=none]])
+		end,
+	},
+
+	{
+		"neovim/nvim-lspconfig",
+		event = { "BufReadPre", "BufNewFile" },
+		cmd = { "Mason" },
+		build = ":MasonUpdate",
+		dependencies = {
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+			"hrsh7th/cmp-nvim-lsp",
+		},
+		config = function()
 			require("mason").setup({ ui = { border = "rounded" } })
+
+			local lsp = require("lspconfig")
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"clangd",
@@ -454,56 +538,33 @@ require("lazy").setup({
 					"pyright",
 				},
 				handlers = {
-					lsp_zero.default_setup,
+					function(server)
+						lsp[server].setup({ capabilities = capabilities })
+					end,
+					["lua_ls"] = function()
+						lsp.lua_ls.setup({
+							capabilities = capabilities,
+							settings = {
+								Lua = {
+									runtime = { version = "LuaJIT" },
+									diagnostics = { globals = { "vim" } },
+									workspace = { library = { vim.env.VIMRUNTIME } },
+								},
+							},
+						})
+					end,
 					["clangd"] = function()
-						require("lspconfig").clangd.setup({
+						lsp.clangd.setup({
 							-- Need to setup %UserProfile%/AppData/Local/clangd/config.yaml as well
 							-- CompileFlags:
-							--  Compiler: <same-as-query-driver>
+							--   Compiler: <same-as-query-driver>
+							capabilities = capabilities,
 							cmd = {
 								"clangd",
 								"--query-driver=C:\\dev\\msys64\\ucrt64\\bin\\gcc,C:\\dev\\msys64\\ucrt64\\bin\\g++",
 							},
 						})
 					end,
-				},
-			})
-
-			-- Configure Snippets
-			require("luasnip/loaders/from_vscode").lazy_load()
-
-			-- Configure Autocompletion Suggestions
-			local cmp = require("cmp")
-			local cmp_select = { behavior = cmp.SelectBehavior.Select }
-
-			cmp.setup({
-				sources = {
-					{ name = "path" },
-					{ name = "nvim_lsp" },
-					{ name = "nvim_lua" },
-					{ name = "luasnip" },
-				},
-				snippet = {
-					expand = function(args)
-						require("luasnip").lsp_expand(args.body)
-					end,
-				},
-				formatting = lsp_zero.cmp_format(),
-				mapping = cmp.mapping.preset.insert({
-					["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-					["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-					["<Tab>"] = cmp.mapping.confirm({ select = true }),
-					["<CR>"] = cmp.mapping.confirm({ select = true }),
-					["<C-X>"] = cmp.mapping(
-						cmp.mapping.complete({
-							reason = cmp.ContextReason.Auto,
-						}),
-						{ "i", "c" }
-					),
-				}),
-				window = {
-					completion = cmp.config.window.bordered(),
-					documentation = cmp.config.window.bordered(),
 				},
 			})
 		end,

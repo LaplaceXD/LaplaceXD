@@ -26,7 +26,7 @@ vim.keymap.set("v", "<S-Tab>", "<C-<>gv")
 -- Just removes spaces below a line
 vim.keymap.set("n", "J", "mzJ`z")
 
--- Traversal in blocks while maintaining cursor position 
+-- Traversal in blocks while maintaining cursor position
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
@@ -46,10 +46,52 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Open Lazy File
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/AppData/Local/nvim/lua/laplace/lazy.lua<CR>");
+vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/AppData/Local/nvim/lua/laplace/lazy.lua<CR>")
 
 -- Clearfix Movement
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+
+-- Code Diagnostics
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
+vim.keymap.set("n", "[d", vim.diagnostic.goto_next)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_prev)
+
+-- LSP Keymaps
+vim.api.nvim_create_autocmd("LspAttach", {
+	desc = "LSP Actions",
+	callback = function(event)
+		local keymaps = {
+			{ "textDocument/hover", "K", vim.lsp.buf.hover },
+			{ "textDocument/definition", "gd", vim.lsp.buf.definition },
+			{ "textDocument/references", "gr", vim.lsp.buf.references },
+			{ "textDocument/implementation", "gi", vim.lsp.buf.implementation },
+			{ "textDocument/codeAction", "<leader>ca", vim.lsp.buf.code_action },
+			{ "textDocument/rename", "<leader>rn", vim.lsp.buf.rename },
+			{ "textDocument/signatureHelp", "<leader>ca", vim.lsp.buf.signature_help },
+			{ "workspace/symbol", "<leader>ws", vim.lsp.buf.workspace_symbol },
+		}
+
+		local opts = { buffer = event.buf, remap = false }
+		local client = vim.lsp.get_active_clients()[1]
+
+		-- unpack is still used in 5.1 which is used in nvim internally even though its deprecated
+		table.unpack = table.unpack or unpack
+		for _, mapping in ipairs(keymaps) do
+			local method, key, action = table.unpack(mapping)
+
+			if client.supports_method(method) then
+				vim.keymap.set("n", key, action, opts)
+			end
+		end
+
+		if client.supports_method("textDocument/hover") then
+			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+				border = "rounded",
+			})
+		end
+	end,
+})

@@ -35,8 +35,10 @@ require("lazy").setup({
 		main = "ibl",
 		dependencies = { "HiPhish/rainbow-delimiters.nvim" },
 		config = function()
-			local highlight = { "Yellow", "Purple", "Blue" }
+			local hooks = require("ibl.hooks")
+			hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
 
+			local highlight = { "Yellow", "Purple", "Blue" }
 			vim.g.rainbow_delimiters = { highlight = highlight }
 			require("ibl").setup({
 				indent = {
@@ -95,15 +97,13 @@ require("lazy").setup({
 					"trouble",
 				},
 				custom_colors = function(colors)
-					-- This will be used later on for bracket colors
+					-- Bracket Colors
 					vim.api.nvim_set_hl(0, "Yellow", { fg = colors.main.yellow })
 					vim.api.nvim_set_hl(0, "Purple", { fg = colors.main.purple })
 					vim.api.nvim_set_hl(0, "Blue", { fg = colors.main.blue })
 
-					-- ensure that the status line has a transparent background
-					colors.main.black = ""
-					-- dark purple is too harsh on the eyes for lsp
-					colors.main.darkpurple = colors.main.paleblue
+					colors.main.black = "" -- make statusline background transparent
+					colors.main.darkpurple = colors.main.paleblue -- darkpurple is too harsh for lsp autosuggestions
 					colors.editor.accent = colors.main.darkpurple
 				end,
 				disable = {

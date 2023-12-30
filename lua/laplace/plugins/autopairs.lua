@@ -1,0 +1,31 @@
+return {
+	{
+		"windwp/nvim-autopairs",
+		event = { "BufReadPre", "BufNewFile" },
+		opts = {},
+	},
+
+	{
+		"windwp/nvim-ts-autotag",
+		ft = {
+			"html",
+			"javascript",
+			"typescript",
+			"javascriptreact",
+			"typescriptreact",
+			"svelte",
+			"vue",
+			"tsx",
+			"jsx",
+			"rescript",
+			"xml",
+			"php",
+			"markdown",
+			"astro",
+			"glimmer",
+			"handlebars",
+			"hbs",
+		},
+		opts = {},
+	},
+}

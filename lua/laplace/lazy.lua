@@ -33,33 +33,40 @@ require("lazy").setup({
 		"lukas-reineke/indent-blankline.nvim",
 		event = "VeryLazy",
 		main = "ibl",
-		opts = {
-			indent = {
-				char = "▏",
-				tab_char = "▏",
-			},
-			scope = {
-				enabled = true,
-				show_exact_scope = true,
-				show_start = false,
-				show_end = false,
-			},
-			exclude = {
-				filetypes = {
-					"help",
-					"alpha",
-					"dashboard",
-					"neo-tree",
-					"Trouble",
-					"trouble",
-					"lazy",
-					"mason",
-					"notify",
-					"toggleterm",
-					"lazyterm",
+		dependencies = { "HiPhish/rainbow-delimiters.nvim" },
+		config = function()
+			local highlight = { "Yellow", "Purple", "Blue" }
+
+			vim.g.rainbow_delimiters = { highlight = highlight }
+			require("ibl").setup({
+				indent = {
+					char = "▏",
+					tab_char = "▏",
 				},
-			},
-		},
+				scope = {
+					enabled = true,
+					highlight = highlight,
+					show_exact_scope = true,
+					show_start = false,
+					show_end = false,
+				},
+				exclude = {
+					filetypes = {
+						"help",
+						"alpha",
+						"dashboard",
+						"neo-tree",
+						"Trouble",
+						"trouble",
+						"lazy",
+						"mason",
+						"notify",
+						"toggleterm",
+						"lazyterm",
+					},
+				},
+			})
+		end,
 	},
 
 	{
@@ -69,6 +76,13 @@ require("lazy").setup({
 		name = "material",
 		config = function()
 			require("material").setup({
+				contrast = {
+					terminal = true,
+					sidebars = true,
+					floating_windows = true,
+					cursor_line = true,
+					non_current_windows = true,
+				},
 				plugins = {
 					"gitsigns",
 					"harpoon",
@@ -81,8 +95,15 @@ require("lazy").setup({
 					"trouble",
 				},
 				custom_colors = function(colors)
-					colors.main.black = "" -- ensures that the status line has a transparent background
-					colors.main.darkpurple = colors.main.paleblue -- dark purple is too harsh on the eyes
+					-- This will be used later on for bracket colors
+					vim.api.nvim_set_hl(0, "Yellow", { fg = colors.main.yellow })
+					vim.api.nvim_set_hl(0, "Purple", { fg = colors.main.purple })
+					vim.api.nvim_set_hl(0, "Blue", { fg = colors.main.blue })
+
+					-- ensure that the status line has a transparent background
+					colors.main.black = ""
+					-- dark purple is too harsh on the eyes for lsp
+					colors.main.darkpurple = colors.main.paleblue
 					colors.editor.accent = colors.main.darkpurple
 				end,
 				disable = {

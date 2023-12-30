@@ -82,42 +82,43 @@ require("lazy").setup({
 		lazy = false,
 		priority = 1000,
 		name = "material",
-		config = function()
-			require("material").setup({
-				contrast = {
-					terminal = true,
-					sidebars = true,
-					floating_windows = true,
-					cursor_line = true,
-					non_current_windows = true,
-				},
-				plugins = {
-					"gitsigns",
-					"harpoon",
-					"lspsaga",
-					"indent-blankline",
-					"rainbow-delimiters",
-					"mini",
-					"nvim-cmp",
-					"nvim-web-devicons",
-					"telescope",
-					"trouble",
-				},
-				custom_colors = function(colors)
-					-- Bracket Colors
-					vim.api.nvim_set_hl(0, "Yellow", { fg = colors.main.yellow })
-					vim.api.nvim_set_hl(0, "Purple", { fg = colors.main.purple })
-					vim.api.nvim_set_hl(0, "Blue", { fg = colors.main.blue })
+		opts = {
+			contrast = {
+				terminal = true,
+				sidebars = true,
+				floating_windows = true,
+				cursor_line = true,
+				non_current_windows = true,
+			},
+			plugins = {
+				"gitsigns",
+				"harpoon",
+				"lspsaga",
+				"indent-blankline",
+				"rainbow-delimiters",
+				"mini",
+				"nvim-cmp",
+				"nvim-web-devicons",
+				"telescope",
+				"trouble",
+			},
+			custom_colors = function(colors)
+				-- Bracket Colors
+				vim.api.nvim_set_hl(0, "Yellow", { fg = colors.main.yellow })
+				vim.api.nvim_set_hl(0, "Purple", { fg = colors.main.purple })
+				vim.api.nvim_set_hl(0, "Blue", { fg = colors.main.blue })
 
-					colors.main.black = "" -- make statusline background transparent
-					colors.main.darkpurple = colors.main.paleblue -- darkpurple is too harsh for lsp autosuggestions
-					colors.editor.accent = colors.main.darkpurple
-				end,
-				disable = {
-					background = true,
-					colored_cursor = true,
-				},
-			})
+				colors.main.black = "" -- make statusline background transparent
+				colors.main.darkpurple = colors.main.paleblue -- darkpurple is too harsh for lsp autosuggestions
+				colors.editor.accent = colors.main.darkpurple
+			end,
+			disable = {
+				background = true,
+				colored_cursor = true,
+			},
+		},
+		config = function(_, opts)
+			require("material").setup(opts)
 			vim.g.material_style = "palenight"
 			vim.cmd([[colorscheme material]])
 		end,
@@ -170,34 +171,34 @@ require("lazy").setup({
 				desc = "Format buffer",
 			},
 		},
-		config = function()
+		opts = {
+			formatters_by_ft = {
+				lua = { "stylua" },
+				c = { "clang-format" },
+				cpp = { "clang-format" },
+				go = { "goimports", "gofmt" },
+				python = { "autopep8" },
+				javascript = { { "prettierd", "prettier" } },
+				javascriptreact = { { "prettierd", "prettier" } },
+				typescript = { { "prettierd", "prettier" } },
+				typescriptreact = { { "prettierd", "prettier" } },
+				vue = { { "prettierd", "prettier" } },
+				css = { { "prettierd", "prettier" } },
+				scss = { { "prettierd", "prettier" } },
+				less = { { "prettierd", "prettier" } },
+				html = { { "prettierd", "prettier" } },
+				json = { { "prettierd", "prettier" } },
+				jsonc = { { "prettierd", "prettier" } },
+				yaml = { { "prettierd", "prettier" } },
+				markdown = { { "prettierd", "prettier" } },
+				["markdown.mdx"] = { { "prettierd", "prettier" } },
+				graphql = { { "prettierd", "prettier" } },
+				handlebars = { { "prettierd", "prettier" } },
+			},
+		},
+		config = function(_, opts)
 			local conform = require("conform")
-
-			conform.setup({
-				formatters_by_ft = {
-					lua = { "stylua" },
-					c = { "clang-format" },
-					cpp = { "clang-format" },
-					go = { "goimports", "gofmt" },
-					python = { "autopep8" },
-					javascript = { { "prettierd", "prettier" } },
-					javascriptreact = { { "prettierd", "prettier" } },
-					typescript = { { "prettierd", "prettier" } },
-					typescriptreact = { { "prettierd", "prettier" } },
-					vue = { { "prettierd", "prettier" } },
-					css = { { "prettierd", "prettier" } },
-					scss = { { "prettierd", "prettier" } },
-					less = { { "prettierd", "prettier" } },
-					html = { { "prettierd", "prettier" } },
-					json = { { "prettierd", "prettier" } },
-					jsonc = { { "prettierd", "prettier" } },
-					yaml = { { "prettierd", "prettier" } },
-					markdown = { { "prettierd", "prettier" } },
-					["markdown.mdx"] = { { "prettierd", "prettier" } },
-					graphql = { { "prettierd", "prettier" } },
-					handlebars = { { "prettierd", "prettier" } },
-				},
-			})
+			conform.setup(opts)
 
 			vim.keymap.set("n", "<leader>f", function()
 				conform.format({ async = true, lsp_fallback = true })
@@ -376,32 +377,33 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPre", "BufNewFile" },
 		build = ":TSUpdate",
-		config = function()
-			require("nvim-treesitter.configs").setup({
-				ensure_installed = {
-					"html",
-					"css",
-					"javascript",
-					"typescript",
-					"tsx",
-					"go",
-					"python",
-					"c",
-					"markdown",
-					"markdown_inline",
-					"json",
-					"jsonc",
-					"lua",
-				},
+		opts = {
+			ensure_installed = {
+				"html",
+				"css",
+				"javascript",
+				"typescript",
+				"tsx",
+				"go",
+				"python",
+				"c",
+				"markdown",
+				"markdown_inline",
+				"json",
+				"jsonc",
+				"lua",
+			},
 
-				sync_install = false,
-				auto_install = true,
+			sync_install = false,
+			auto_install = true,
 
-				highlight = {
-					enable = true,
-					additional_vim_regex_highlighting = false,
-				},
-			})
+			highlight = {
+				enable = true,
+				additional_vim_regex_highlighting = false,
+			},
+		},
+		config = function(_, opts)
+			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},
 
@@ -423,13 +425,14 @@ require("lazy").setup({
 			"rafamadriz/friendly-snippets",
 		},
 		config = function()
-			local ok, luasnip = pcall(require, "luasnip.loaders.from_vscode")
+			local ok, loaders = pcall(require, "luasnip.loaders.from_vscode")
 
 			if ok then
-				luasnip.lazy_load()
+				loaders.lazy_load()
 			end
 
 			local cmp = require("cmp")
+			local luasnip = require("luasnip")
 			local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 			local symbols = {
@@ -468,7 +471,7 @@ require("lazy").setup({
 				}),
 				snippet = {
 					expand = function(args)
-						require("luasnip").lsp_expand(args.body)
+						luasnip.lsp_expand(args.body)
 					end,
 				},
 				formatting = {

@@ -24,10 +24,6 @@
       "keys": "ctrl+tab"
     },
     {
-      "command": "duplicateTab",
-      "keys": "ctrl+t"
-    },
-    {
       "command": {
         "action": "switchToTab",
         "index": 0

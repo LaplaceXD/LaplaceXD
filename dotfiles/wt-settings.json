@@ -28,10 +28,6 @@
       "keys": "ctrl+t"
     },
     {
-      "command": "closePane",
-      "keys": "ctrl+w"
-    },
-    {
       "command": {
         "action": "switchToTab",
         "index": 0

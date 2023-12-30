@@ -90,6 +90,7 @@ require("lazy").setup({
 					"harpoon",
 					"lspsaga",
 					"indent-blankline",
+                    "rainbow-delimiters",
 					"mini",
 					"nvim-cmp",
 					"nvim-web-devicons",

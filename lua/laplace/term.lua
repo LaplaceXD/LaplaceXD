@@ -1,4 +1,3 @@
--- Setups for the nvim look
 vim.opt.guicursor = ""
 
 vim.opt.nu = true

@@ -4,15 +4,7 @@
   "actions": [
     {
       "command": "find",
-      "keys": "ctrl+shift+f"
-    },
-    {
-      "command": {
-        "action": "splitPane",
-        "split": "auto",
-        "splitMode": "duplicate"
-      },
-      "keys": "alt+shift+d"
+      "keys": "ctrl+f"
     },
     {
       "command": {
@@ -22,73 +14,22 @@
       "keys": "ctrl+c"
     },
     {
-      "command": {
-        "action": "switchToTab",
-        "index": 3
-      },
-      "keys": "ctrl+4"
-    },
-    {
       "command": "paste",
       "keys": "ctrl+v"
     },
     {
       "command": {
-        "action": "splitPane",
-        "split": "up"
+        "action": "nextTab"
       },
-      "keys": "ctrl+up"
+      "keys": "ctrl+tab"
     },
     {
-      "command": {
-        "action": "splitPane",
-        "split": "down"
-      },
-      "keys": "ctrl+down"
+      "command": "duplicateTab",
+      "keys": "ctrl+t"
     },
     {
-      "command": "unbound",
-      "keys": "ctrl+alt+1"
-    },
-    {
-      "command": "unbound",
-      "keys": "ctrl+alt+2"
-    },
-    {
-      "command": "unbound",
-      "keys": "ctrl+alt+3"
-    },
-    {
-      "command": "unbound",
-      "keys": "ctrl+alt+4"
-    },
-    {
-      "command": "unbound",
-      "keys": "ctrl+alt+5"
-    },
-    {
-      "command": "unbound",
-      "keys": "ctrl+alt+6"
-    },
-    {
-      "command": "unbound",
-      "keys": "ctrl+alt+7"
-    },
-    {
-      "command": "unbound",
-      "keys": "ctrl+alt+8"
-    },
-    {
-      "command": "unbound",
-      "keys": "ctrl+alt+9"
-    },
-    {
-      "command": "unbound",
-      "keys": "alt+shift+minus"
-    },
-    {
-      "command": "unbound",
-      "keys": "alt+shift+plus"
+      "command": "closePane",
+      "keys": "ctrl+w"
     },
     {
       "command": {
@@ -113,31 +54,54 @@
     },
     {
       "command": {
+        "action": "switchToTab",
+        "index": 3
+      },
+      "keys": "ctrl+4"
+    },
+    {
+      "command": {
+        "action": "switchToTab",
+        "index": 4
+      },
+      "keys": "ctrl+5"
+    },
+    {
+      "command": {
         "action": "splitPane",
-        "split": "right"
+        "split": "right",
+        "splitMode": "duplicate"
       },
       "keys": "ctrl+right"
     },
     {
       "command": {
         "action": "splitPane",
-        "split": "left"
+        "split": "down",
+        "splitMode": "duplicate"
       },
-      "keys": "ctrl+left"
+      "keys": "ctrl+down"
     },
     {
       "command": {
-        "action": "nextTab"
+        "action": "splitPane",
+        "split": "up",
+        "splitMode": "duplicate"
       },
-      "keys": "ctrl+tab"
+      "keys": "ctrl+up"
+    },
+    {
+      "command": {
+        "action": "splitPane",
+        "split": "left",
+        "splitMode": "duplicate"
+      },
+      "keys": "ctrl+left"
     }
   ],
-  "startOnUserLogin": true,
-  "tabSwitcherMode": "inOrder",
   "copyFormatting": "none",
   "copyOnSelect": false,
   "defaultProfile": "{d15b228a-05d7-50d1-8472-f60aaba86efc}",
-  "suppressApplicationTitle": true,
   "newTabMenu": [
     {
       "type": "remainingProfiles"
@@ -160,7 +124,8 @@
       "opacity": 90,
       "padding": "4",
       "snapOnInput": true,
-      "startingDirectory": "%USERPROFILE%"
+      "startingDirectory": "%USERPROFILE%",
+      "suppressApplicationTitle": true
     },
     "list": [
       {

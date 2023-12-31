@@ -52,7 +52,9 @@ return {
 			builtin.git_files({ show_untracked = true, prompt_prefix = "🔍 " })
 		end)
 		vim.keymap.set("n", "<leader>ps", function()
-			builtin.grep_string({ search = vim.fn.input("Search > "), prompt_prefix = "🔍 " })
+			vim.ui.input({ prompt = "Search > " }, function(search)
+				builtin.grep_string({ search = search, prompt_prefix = "🔍 " })
+			end)
 		end)
 
 		vim.api.nvim_create_autocmd("LspAttach", {
@@ -89,9 +91,11 @@ return {
 						"workspace/symbol",
 						"<leader>ws",
 						function()
-							builtin.lsp_workspace_symbols({
-								query = vim.fn.input("Symbol > "),
-							})
+							vim.ui.input({ prompt = "Symbol > " }, function(query)
+								builtin.lsp_workspace_symbols({
+									query = query,
+								})
+							end)
 						end,
 					},
 				}

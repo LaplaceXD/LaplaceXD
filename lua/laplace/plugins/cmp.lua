@@ -104,8 +104,5 @@ return {
 			mapping = cmp.mapping.preset.cmdline(),
 			sources = cmp.config.sources({ { name = "path" }, { name = "cmdline" } }),
 		})
-
-		-- transparent background for suggestion windows
-		vim.cmd([[hi Pmenu guibg=none]])
 	end,
 }

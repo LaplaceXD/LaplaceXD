@@ -63,7 +63,7 @@ vim.keymap.set("n", "]d", vim.diagnostic.goto_prev)
 -- LSP Keymaps
 vim.api.nvim_create_autocmd("LspAttach", {
 	desc = "LSP Actions",
-	callback = function(event)
+	callback = function(args)
 		local handlers = {
 			{ "workspace/symbol", "<leader>ws", vim.lsp.buf.workspace_symbol },
 			{ "textDocument/hover", "K", vim.lsp.buf.hover },
@@ -75,8 +75,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			{ "textDocument/signatureHelp", "<C-h>", vim.lsp.buf.signature_help },
 		}
 
-		local opts = { buffer = event.buf, remap = false }
-		local client = vim.lsp.get_active_clients()[1]
+		local opts = { buffer = args.buf, remap = false }
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
 
 		-- unpack is still used in 5.1 which is used in nvim internally even though its deprecated
 		table.unpack = table.unpack or unpack

@@ -1,13 +1,33 @@
-vim.opt.guicursor = ""
+-- General NVIM configs
+vim.opt.isfname:append("@-@")
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
+vim.opt.swapfile = false
+vim.opt.backup = false
 
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+
+-- Cursors and Scrolling Pad
+vim.opt.guicursor = ""
+vim.opt.scrolloff = 8
+
+-- Terminal Colors, Sign Columns, and Text Wrapping
+vim.opt.termguicolors = true
+vim.opt.signcolumn = "yes"
+vim.opt.wrap = false
+
+-- Numberline configs
 vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.numberwidth = 1
 
+-- Tabbing and Indentations
 vim.opt.tabstop = 4
 vim.opt.softtabstop = -1
 vim.opt.shiftwidth = 0
 vim.opt.expandtab = true
+vim.opt.smartindent = true
 
 vim.api.nvim_create_augroup("setIndent", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
@@ -31,45 +51,15 @@ vim.api.nvim_create_autocmd("FileType", {
 	command = "setlocal tabstop=2",
 })
 
-vim.opt.smartindent = true
-
-vim.opt.wrap = false
-
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
-
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-
-vim.opt.termguicolors = true
-
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
-vim.opt.isfname:append("@-@")
-
-vim.opt.updatetime = 50
-
+-- Diagnostic Configs
 vim.diagnostic.config({
-	virtual_text = {
-		source = "if_many",
-		prefix = "●",
-	},
 	update_in_insert = true,
-	underline = true,
 	severity_sort = true,
-	float = {
-		focusable = false,
-		style = "minimal",
-		border = "rounded",
-		source = "if_many",
-		header = "",
-		prefix = "",
-	},
+	virtual_text = { source = "if_many", prefix = "●" },
+	float = { source = "if_many", border = "rounded", header = "", prefix = "" },
 })
 
-vim.fn.sign_define("DiagnosticSignError", { texthl = "DiagnosticSignError", text = "", numhl = "" })
-vim.fn.sign_define("DiagnosticSignWarn", { texthl = "DiagnosticSignWarn", text = "", numhl = "" })
-vim.fn.sign_define("DiagnosticSignHint", { texthl = "DiagnosticSignHint", text = "⚑", numhl = "" })
-vim.fn.sign_define("DiagnosticSignInfo", { texthl = "DiagnosticSignInfo", text = "»", numhl = "" })
+vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError", numhl = "" })
+vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn", numhl = "" })
+vim.fn.sign_define("DiagnosticSignHint", { text = "⚑", texthl = "DiagnosticSignHint", numhl = "" })
+vim.fn.sign_define("DiagnosticSignInfo", { text = "»", texthl = "DiagnosticSignInfo", numhl = "" })

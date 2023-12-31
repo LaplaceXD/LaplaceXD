@@ -5,8 +5,8 @@ vim.opt.relativenumber = true
 vim.opt.numberwidth = 1
 
 vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.softtabstop = -1
+vim.opt.shiftwidth = 0
 vim.opt.expandtab = true
 
 vim.api.nvim_create_augroup("setIndent", { clear = true })
@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		"jsx",
 		"tsx",
 	},
-	command = "setlocal shiftwidth=2 softtabstop=2 tabstop=2",
+	command = "setlocal tabstop=2",
 })
 
 vim.opt.smartindent = true

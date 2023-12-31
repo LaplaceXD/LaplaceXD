@@ -122,9 +122,9 @@ return {
 						local links = {
 							[colors.main.yellow] = {
 								-- BRUHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-								-- I pray for someone builds a material colorscheme
+								-- I pray that someone builds a material colorscheme
 								-- that is more 1:1 with vscode or I'm gonna waste
-								-- my entire life building one
+								-- my entire life building one (if I don't procrastinate)
 								"@lsp.typemod.enumMember.readonly.typescriptreact",
 								"@lsp.typemod.type.defaultLibrary.typescriptreact",
 								"@lsp.typemod.class.defaultLibrary.typescriptreact",

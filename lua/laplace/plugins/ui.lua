@@ -22,7 +22,7 @@ return {
 		"HiPhish/rainbow-delimiters.nvim",
 		event = "VeryLazy",
 		opts = {
-			highlight = { "MaterialYellow", "MaterialPurple", "MaterialBlue" },
+			highlight = { "PrimaryBracketHighlight", "SecondaryBracketHighlight", "TertiaryBracketHighlight" },
 			query = { tsx = "rainbow-parens" },
 		},
 		config = function(_, opts)
@@ -41,7 +41,7 @@ return {
 			},
 			scope = {
 				enabled = true,
-				highlight = { "MaterialYellow", "MaterialPurple", "MaterialBlue" },
+				highlight = { "PrimaryBracketHighlight", "SecondaryBracketHighlight", "TertiaryBracketHighlight" },
 				show_exact_scope = true,
 				show_start = false,
 				show_end = false,
@@ -106,64 +106,84 @@ return {
 			},
 		},
 		config = function(_, opts)
-			require("material").setup(opts)
+			local colors = require("material.colors")
+
+			-- LSP color overrides, since this theme lacks yellow
+			require("material").setup(vim.tbl_deep_extend("force", opts, {
+				custom_highlights = {
+					["@lsp.type.class.c"] = { fg = colors.main.yellow },
+					["@lsp.type.macro.c"] = { fg = colors.main.blue },
+
+					["@type.python"] = { fg = colors.main.yellow },
+
+					["@lsp.typemod.enumMember.readonly.typescriptreact"] = { fg = colors.main.yellow },
+					["@lsp.typemod.type.defaultLibrary.typescriptreact"] = { fg = colors.main.yellow },
+					["@lsp.typemod.class.defaultLibrary.typescriptreact"] = { fg = colors.main.yellow },
+					["@lsp.typemod.interface.defaultLibrary.typescriptreact"] = { fg = colors.main.yellow },
+					["@lsp.typemod.interface.declaration.typescriptreact"] = { fg = colors.main.yellow },
+					["@lsp.typemod.type.declaration.typescriptreact"] = { fg = colors.main.yellow },
+					["@lsp.type.type.typescriptreact"] = { fg = colors.main.yellow },
+					["@lsp.type.interface.typescriptreact"] = { fg = colors.main.yellow },
+					["@constructor.tsx"] = { fg = colors.main.yellow },
+					["@type.tsx"] = { fg = colors.main.yellow },
+
+					["@lsp.typemod.enumMember.readonly.typescript"] = { fg = colors.main.yellow },
+					["@lsp.typemod.interface.declaration.typescript"] = { fg = colors.main.yellow },
+					["@lsp.typemod.type.declaration.typescript"] = { fg = colors.main.yellow },
+					["@lsp.type.type.typescript"] = { fg = colors.main.yellow },
+					["@lsp.type.interface.typescript"] = { fg = colors.main.yellow },
+					["@type.typescript"] = { fg = colors.main.yellow },
+					["@constant"] = { fg = colors.main.white },
+				},
+			}))
+
+			-- Bracket Colorizer overrides
+			vim.api.nvim_create_autocmd("Colorscheme", {
+				callback = function()
+					local scheme_prefix = "material"
+					local current_scheme_prefix = vim.g.colors_name and vim.g.colors_name:sub(1, #scheme_prefix) or ""
+
+					if scheme_prefix == current_scheme_prefix then
+						vim.api.nvim_set_hl(0, "PrimaryBracketHighlight", { fg = colors.main.yellow })
+						vim.api.nvim_set_hl(0, "SecondaryBracketHighlight", { fg = colors.main.purple })
+						vim.api.nvim_set_hl(0, "TertiaryBracketHighlight", { fg = colors.main.blue })
+					end
+				end,
+			})
+
 			vim.g.material_style = "palenight"
 			vim.cmd.colorscheme("material")
+		end,
+	},
 
-			local colors = require("material.colors")
-			-- colors for brackets
-			vim.api.nvim_set_hl(0, "MaterialYellow", { fg = colors.main.yellow })
-			vim.api.nvim_set_hl(0, "MaterialPurple", { fg = colors.main.purple })
-			vim.api.nvim_set_hl(0, "MaterialBlue", { fg = colors.main.blue })
+	{
+		"projekt0n/github-nvim-theme",
+		lazy = false,
+		priority = 1000,
+		opts = {
+			options = {
+				transparent = true,
+			},
+			palettes = {
+				all = {
+					black = { base = "", bright = "" },
+				},
+			},
+		},
+		config = function(_, opts)
+			require("github-theme").setup(opts)
 
-			-- color overrides for LSP
-			vim.api.nvim_create_autocmd("LspAttach", {
-				callback = function(args)
-					local client = vim.lsp.get_client_by_id(args.data.client_id)
+			-- Bracket Colorizer overrides
+			vim.api.nvim_create_autocmd("Colorscheme", {
+				callback = function()
+					local scheme_prefix = "github"
+					local current_scheme_prefix = vim.g.colors_name and vim.g.colors_name:sub(1, #scheme_prefix) or ""
 
-					if client.name == "clangd" then
-						vim.api.nvim_set_hl(0, "@lsp.type.class.c", { fg = colors.main.yellow })
-						vim.api.nvim_set_hl(0, "@lsp.type.macro.c", { fg = colors.main.blue })
-					elseif client.name == "pyright" then
-						vim.api.nvim_set_hl(0, "@type.python", { fg = colors.main.yellow })
-					elseif client.name == "tsserver" then
-						local links = {
-							[colors.main.yellow] = {
-								-- BRUHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-								-- I pray that someone builds a material colorscheme
-								-- that is more 1:1 with vscode or I'm gonna waste
-								-- my entire life building one (if I don't procrastinate)
-								"@lsp.typemod.enumMember.readonly.typescriptreact",
-								"@lsp.typemod.type.defaultLibrary.typescriptreact",
-								"@lsp.typemod.class.defaultLibrary.typescriptreact",
-								"@lsp.typemod.interface.defaultLibrary.typescriptreact",
-								"@lsp.typemod.interface.declaration.typescriptreact",
-								"@lsp.typemod.type.declaration.typescriptreact",
-								"@lsp.type.type.typescriptreact",
-								"@lsp.type.interface.typescriptreact",
-
-								"@lsp.typemod.enumMember.readonly.typescript",
-								"@lsp.typemod.interface.declaration.typescript",
-								"@lsp.typemod.type.declaration.typescript",
-								"@lsp.type.type.typescript",
-								"@lsp.type.interface.typescript",
-
-								"@constructor.tsx",
-								"@type.typescript",
-								"@type.tsx",
-							},
-							[colors.editor.fg] = "@constant",
-						}
-
-						for color, hl in pairs(links) do
-							if type(hl) == "table" then
-								for _, h in ipairs(hl) do
-									vim.api.nvim_set_hl(0, h, { fg = color })
-								end
-							else
-								vim.api.nvim_set_hl(0, hl, { fg = color })
-							end
-						end
+					if scheme_prefix == current_scheme_prefix then
+						local palette = require("github-theme.palette").load("githu_dark_default")
+						vim.api.nvim_set_hl(0, "PrimaryBracketHighlight", { fg = palette.blue.bright })
+						vim.api.nvim_set_hl(0, "SecondaryBracketHighlight", { fg = palette.green.bright })
+						vim.api.nvim_set_hl(0, "TertiaryBracketHighlight", { fg = palette.yellow.bright })
 					end
 				end,
 			})

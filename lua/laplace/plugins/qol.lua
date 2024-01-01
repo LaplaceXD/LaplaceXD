@@ -19,9 +19,20 @@ return {
 	},
 
 	{
-		"Pocco81/auto-save.nvim",
-		event = { "InsertLeave", "FocusLost", "VimLeavePre" },
-		opts = { trigger_events = { "InsertLeave", "FocusLost", "VimLeavePre" } },
+		"0x00-ketsu/autosave.nvim",
+		event = { "CursorHold", "CursorHoldI", "BufLeave", "FocusLost" },
+		opts = {
+			events = {
+				-- Save when cursor doesn't move until updatetime expires (4s default)
+				"CursorHold",
+				"CursorHoldI",
+				-- Save when changing or leaving buffers, or when losing focus to the buffer
+				"BufLeave",
+				"FocusLost",
+				-- Save before exiting vim
+				"ExitPre",
+			},
+		},
 	},
 
 	{

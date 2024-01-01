@@ -1,5 +1,15 @@
 return {
 	{
+		"kylechui/nvim-surround",
+		keys = {
+			{ "ys", desc = "Insert surrounding character command prefix.", mode = "n" },
+			{ "cs", desc = "Change surrounding character command prefix.", mode = "n" },
+			{ "ds", desc = "Delete surrounding character command prefix.", mode = "n" },
+		},
+		opts = {},
+	},
+
+	{
 		"windwp/nvim-autopairs",
 		event = { "BufReadPre", "BufNewFile" },
 		opts = {},

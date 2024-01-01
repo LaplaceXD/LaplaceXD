@@ -81,9 +81,9 @@ return {
 				["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
 				["<Tab>"] = cmp.mapping.confirm({ select = true }),
 				["<CR>"] = cmp.mapping.confirm({ select = true }),
-				["<C-Space>"] = cmp.mapping.complete({
+				["<C-x>"] = cmp.mapping(cmp.mapping.complete({
 					reason = cmp.ContextReason.Auto,
-				}),
+				})),
 			}),
 			window = {
 				completion = cmp.config.window.bordered(),

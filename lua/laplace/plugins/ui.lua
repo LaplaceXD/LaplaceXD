@@ -1,6 +1,14 @@
 return {
 	{ "nvim-tree/nvim-web-devicons", lazy = true },
 
+	-- {
+	-- "Bekaboo/dropbar.nvim",
+	-- event = "VeryLazy",
+	-- dependencies = {
+	-- "nvim-telescope/telescope-fzf-native.nvim",
+	-- },
+	-- },
+
 	{
 		"stevearc/dressing.nvim",
 		event = "VeryLazy",
@@ -186,7 +194,7 @@ return {
 					local current_scheme_prefix = vim.g.colors_name and vim.g.colors_name:sub(1, #scheme_prefix) or ""
 
 					if scheme_prefix == current_scheme_prefix then
-						local palette = require("github-theme.palette").load("githu_dark_default")
+						local palette = require("github-theme.palette").load(vim.g.colors_name)
 						vim.api.nvim_set_hl(0, "PrimaryBracketHighlight", { fg = palette.blue.bright })
 						vim.api.nvim_set_hl(0, "SecondaryBracketHighlight", { fg = palette.green.bright })
 						vim.api.nvim_set_hl(0, "TertiaryBracketHighlight", { fg = palette.yellow.bright })

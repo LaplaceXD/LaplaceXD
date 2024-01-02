@@ -169,6 +169,12 @@ return {
 					black = { base = "", bright = "" },
 				},
 			},
+			groups = {
+				all = {
+					NormalFloat = {},
+					FloatBorder = { fg = "white" },
+				},
+			},
 		},
 		config = function(_, opts)
 			require("github-theme").setup(opts)

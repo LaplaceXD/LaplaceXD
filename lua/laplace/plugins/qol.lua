@@ -20,7 +20,7 @@ return {
 
 	{
 		"0x00-ketsu/autosave.nvim",
-		event = { "CursorHold", "CursorHoldI", "BufLeave", "FocusLost" },
+		event = { "CursorHold", "CursorHoldI", "BufLeave", "FocusLost", "ExitPre" },
 		opts = {
 			events = {
 				-- Save when cursor doesn't move until updatetime expires (4s default)

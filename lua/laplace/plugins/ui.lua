@@ -31,7 +31,7 @@ return {
 		event = "VeryLazy",
 		opts = {
 			highlight = { "PrimaryBracketHighlight", "SecondaryBracketHighlight", "TertiaryBracketHighlight" },
-			query = { tsx = "rainbow-parens" },
+			query = { tsx = "rainbow-parens", html = "rainbow-parens" },
 		},
 		config = function(_, opts)
 			require("rainbow-delimiters.setup").setup(opts)

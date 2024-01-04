@@ -12,6 +12,11 @@ return {
 			mode = "n",
 		},
 		{
+			"<leader>pb",
+			desc = "Show open buffers for current session",
+			mode = "n",
+		},
+		{
 			"<C-p>",
 			desc = "Find Files within Git Directory",
 			mode = "n",
@@ -22,18 +27,13 @@ return {
 			mode = "n",
 		},
 		{
-			"gd",
-			desc = "Find lsp token definitions with telescope preview.",
+			"gr",
+			desc = "Find lsp token references with telescope preview.",
 			mode = "n",
 		},
 		{
 			"gi",
 			desc = "Find lsp token implementations with telescope preview.",
-			mode = "n",
-		},
-		{
-			"gr",
-			desc = "Find lsp token references with telescope preview.",
 			mode = "n",
 		},
 		{
@@ -45,6 +45,7 @@ return {
 	config = function()
 		local builtin = require("telescope.builtin")
 
+		vim.keymap.set("n", "<leader>pb", builtin.buffers)
 		vim.keymap.set("n", "<leader>pf", function()
 			builtin.find_files({ prompt_prefix = "🔍 " })
 		end)
@@ -59,58 +60,32 @@ return {
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			desc = "LSP Actions powered with Telescope",
-			callback = function(event)
-				local keymaps = {
-					{
-						"textDocument/definition",
-						"gd",
-						function()
-							builtin.lsp_definitions({ trim_text = true })
-						end,
-					},
-					{
-						"textDocument/references",
-						"gr",
-						function()
-							builtin.lsp_references({
-								include_declaration = false,
-								jump_type = "never",
-								show_line = false,
-								trim_text = true,
-							})
-						end,
-					},
-					{
-						"textDocument/implementation",
-						"gi",
-						function()
-							builtin.lsp_definitions({ trim_text = true })
-						end,
-					},
-					{
-						"workspace/symbol",
-						"<leader>ws",
-						function()
-							vim.ui.input({ prompt = "Symbol > " }, function(query)
-								builtin.lsp_workspace_symbols({
-									query = query,
-								})
-							end)
-						end,
-					},
-				}
+			callback = function(args)
+				local lsp_opts = { buffer = args.buf, remap = false }
+				local client = vim.lsp.get_client_by_id(args.data.client_id)
 
-				local lsp_opts = { buffer = event.buf, remap = false }
-				local client = vim.lsp.get_active_clients()[1]
+				if client.supports_method("textDocument/references") then
+					vim.keymap.set("n", "gr", function()
+						builtin.lsp_references({
+							include_declaration = false,
+							show_line = false,
+							trim_text = true,
+						})
+					end, lsp_opts)
+				end
 
-				-- unpack is still used in 5.1 which is used in nvim internally even though its deprecated
-				table.unpack = table.unpack or unpack
-				for _, mapping in ipairs(keymaps) do
-					local method, key, action = table.unpack(mapping)
+				if client.supports_method("textDocument/implementation") then
+					vim.keymap.set("n", "gi", function()
+						builtin.lsp_implementations({ trim_text = true })
+					end, lsp_opts)
+				end
 
-					if client.supports_method(method) then
-						vim.keymap.set("n", key, action, lsp_opts)
-					end
+				if client.supports_method("workspace/symbol") then
+					vim.keymap.set("n", "<leader>ws", function()
+						vim.ui.input({ prompt = "Symbol > " }, function(query)
+							builtin.lsp_workspace_symbols({ query = query })
+						end)
+					end, lsp_opts)
 				end
 			end,
 		})

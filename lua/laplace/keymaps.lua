@@ -72,7 +72,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			{ "textDocument/implementation", "gi", vim.lsp.buf.implementation },
 			{ "textDocument/codeAction", "<leader>ca", vim.lsp.buf.code_action },
 			{ "textDocument/rename", "<leader>rn", vim.lsp.buf.rename },
-			{ "textDocument/signatureHelp", "<C-h>", vim.lsp.buf.signature_help },
+			{ "textDocument/signatureHelp", "<leader>h", vim.lsp.buf.signature_help },
 		}
 
 		local opts = { buffer = args.buf, remap = false }

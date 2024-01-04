@@ -46,7 +46,7 @@ return {
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		keys = {
-			{ "<leader>xw", desc = "Toggle Trouble Workspace", mode = "n" },
+			{ "<leader>xx", desc = "Toggle Trouble Workspace", mode = "n" },
 			{ "<leader>xd", desc = "Toggle Trouble Document", mode = "n" },
 			{ "<leader>xr", desc = "Toggle Trouble LSP references", mode = "n" },
 			{ "]]", desc = "Next Trouble Item", mode = "n" },
@@ -55,7 +55,7 @@ return {
 		config = function()
 			local trouble = require("trouble")
 
-			vim.keymap.set("n", "<leader>xw", function()
+			vim.keymap.set("n", "<leader>xx", function()
 				trouble.toggle("workspace_diagnostics")
 			end)
 			vim.keymap.set("n", "<leader>xd", function()

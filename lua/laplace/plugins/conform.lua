@@ -19,6 +19,7 @@ return {
 			javascriptreact = { { "prettierd", "prettier" } },
 			typescript = { { "prettierd", "prettier" } },
 			typescriptreact = { { "prettierd", "prettier" } },
+			svelte = { { "prettierd", "prettier" } },
 			vue = { { "prettierd", "prettier" } },
 			css = { { "prettierd", "prettier" } },
 			scss = { { "prettierd", "prettier" } },

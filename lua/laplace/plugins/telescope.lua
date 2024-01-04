@@ -12,7 +12,7 @@ return {
 			mode = "n",
 		},
 		{
-			"<leader>pb",
+			"<leader>d",
 			desc = "Show open buffers for current session",
 			mode = "n",
 		},

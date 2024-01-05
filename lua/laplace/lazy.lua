@@ -11,4 +11,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("laplace.plugins")
+require("lazy").setup({
+	spec = "laplace.plugins",
+	ui = { border = "rounded" },
+	change_detection = { notify = false },
+})

@@ -1,8 +1,40 @@
 return {
+	{ "github/copilot.vim", event = { "BufReadPre", "BufNewFile" } },
+	{ "andweeb/presence.nvim", event = "VeryLazy", opts = { main_image = "file" } },
+
 	{
-		"andweeb/presence.nvim",
-		event = "VeryLazy",
-		opts = { main_image = "file" },
+		"0x00-ketsu/autosave.nvim",
+		event = { "CursorHold", "CursorHoldI", "BufLeave", "FocusLost", "ExitPre" },
+		opts = { events = { "CursorHold", "CursorHoldI", "BufLeave", "FocusLost", "ExitPre" } },
+	},
+
+	{
+		"mbbill/undotree",
+		keys = {
+			{ "<leader>u", "<cmd>UndotreeToggle<cr>", desc = "Toggle Undotree", mode = "n" },
+		},
+	},
+
+	{
+		"tpope/vim-fugitive",
+		cmd = { "G", "Git" },
+		keys = {
+			{ "<leader>gs", "<cmd>Git<cr>", desc = "Toggle Git", mode = "n" },
+		},
+	},
+
+	{
+		"lewis6991/gitsigns.nvim",
+		opts = { current_line_blame_opts = { delay = 250 } },
+		event = { "BufReadPre", "BufNewFile" },
+		keys = {
+			{
+				"<leader>gb",
+				"<cmd>Gitsigns toggle_current_line_blame<cr>",
+				desc = "Toggle Current Line Blame",
+				mode = "n",
+			},
+		},
 	},
 
 	{
@@ -16,30 +48,6 @@ return {
 			vim.g.mkdp_filetypes = { "markdown" }
 		end,
 		ft = { "markdown" },
-	},
-
-	{
-		"0x00-ketsu/autosave.nvim",
-		event = { "CursorHold", "CursorHoldI", "BufLeave", "FocusLost", "ExitPre" },
-		opts = {
-			events = {
-				-- Save when cursor doesn't move until updatetime expires (4s default)
-				"CursorHold",
-				"CursorHoldI",
-				-- Save when changing or leaving buffers, or when losing focus to the buffer
-				"BufLeave",
-				"FocusLost",
-				-- Save before exiting vim
-				"ExitPre",
-			},
-		},
-	},
-
-	{
-		"mbbill/undotree",
-		keys = {
-			{ "<leader>u", "<cmd>UndotreeToggle<cr>", desc = "Toggle Undotree", mode = "n" },
-		},
 	},
 
 	{
@@ -72,27 +80,5 @@ return {
 				trouble.previous({ skip_groups = true, jump = true })
 			end)
 		end,
-	},
-
-	{
-		"tpope/vim-fugitive",
-		cmd = { "Git" },
-		keys = {
-			{ "<leader>gs", "<cmd>Git<cr>", desc = "Toggle Git", mode = "n" },
-		},
-	},
-
-	{
-		"lewis6991/gitsigns.nvim",
-		opts = { current_line_blame_opts = { delay = 250 } },
-		event = { "BufReadPre", "BufNewFile" },
-		keys = {
-			{
-				"<leader>gb",
-				"<cmd>Gitsigns toggle_current_line_blame<cr>",
-				desc = "Toggle Current Line Blame",
-				mode = "n",
-			},
-		},
 	},
 }

@@ -27,18 +27,28 @@ return {
 			mode = "n",
 		},
 		{
+			"<leader>pws",
+			desc = "Find references to the hovered word (up to a non-alphanumeric character)",
+			mode = "n",
+		},
+		{
+			"<leader>pWs",
+			desc = "Find references to the hovered word (up to a whitespace)",
+			mode = "n",
+		},
+		{
 			"gr",
-			desc = "Find lsp token references with telescope preview.",
+			desc = "Find lsp token references with telescope preview",
 			mode = "n",
 		},
 		{
 			"gi",
-			desc = "Find lsp token implementations with telescope preview.",
+			desc = "Find lsp token implementations with telescope preview",
 			mode = "n",
 		},
 		{
 			"<leader>ws",
-			desc = "Find lsp token workspace symbols with telescope preview.",
+			desc = "Find lsp token workspace symbols with telescope preview",
 			mode = "n",
 		},
 	},
@@ -46,16 +56,20 @@ return {
 		local builtin = require("telescope.builtin")
 
 		vim.keymap.set("n", "<leader>pb", builtin.buffers)
-		vim.keymap.set("n", "<leader>pf", function()
-			builtin.find_files({ prompt_prefix = "🔍 " })
+		vim.keymap.set("n", "<leader>pf", builtin.find_files)
+		vim.keymap.set("n", "<leader>pws", function()
+			builtin.grep_string({ search = vim.fn.expand("<cword>") })
 		end)
-		vim.keymap.set("n", "<C-p>", function()
-			builtin.git_files({ show_untracked = true, prompt_prefix = "🔍 " })
+		vim.keymap.set("n", "<leader>pWs", function()
+			builtin.grep_string({ search = vim.fn.expand("<cWORD>") })
 		end)
 		vim.keymap.set("n", "<leader>ps", function()
 			vim.ui.input({ prompt = "Search > " }, function(search)
-				builtin.grep_string({ search = search, prompt_prefix = "🔍 " })
+				builtin.grep_string({ search = search })
 			end)
+		end)
+		vim.keymap.set("n", "<C-p>", function()
+			builtin.git_files({ show_untracked = true })
 		end)
 
 		vim.api.nvim_create_autocmd("LspAttach", {

@@ -29,9 +29,10 @@ vim.opt.shiftwidth = 0
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 
-vim.api.nvim_create_augroup("setIndent", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
-	group = "setIndent",
+	group = vim.api.nvim_create_augroup("setIndent", { clear = true }),
+	desc = "Set proper indents to web files",
+	command = "setlocal tabstop=2",
 	pattern = {
 		"html",
 		"css",
@@ -47,8 +48,8 @@ vim.api.nvim_create_autocmd("FileType", {
 		"javascriptreact",
 		"jsx",
 		"tsx",
+		"svelte",
 	},
-	command = "setlocal tabstop=2",
 })
 
 -- Highlight on Yank

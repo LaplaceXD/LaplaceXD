@@ -51,6 +51,16 @@ vim.api.nvim_create_autocmd("FileType", {
 	command = "setlocal tabstop=2",
 })
 
+-- Highlight on Yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+	group = vim.api.nvim_create_augroup("HiYank", { clear = true }),
+	desc = "Hightlight selection on yank",
+	pattern = "*",
+	callback = function()
+		vim.highlight.on_yank({ higroup = "Visual", timeout = 500 })
+	end,
+})
+
 -- Diagnostic Configs
 vim.diagnostic.config({
 	update_in_insert = true,

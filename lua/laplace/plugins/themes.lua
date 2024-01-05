@@ -63,6 +63,8 @@ return {
 					["@lsp.type.interface.typescript"] = { fg = colors.main.yellow },
 					["@type.typescript"] = { fg = colors.main.yellow },
 					["@constant"] = { fg = colors.main.white },
+
+					["@lsp.type.class.svelte"] = { fg = colors.main.yellow },
 				},
 			}))
 

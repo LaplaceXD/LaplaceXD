@@ -94,30 +94,27 @@
   "copyFormatting": "none",
   "copyOnSelect": false,
   "defaultProfile": "{d15b228a-05d7-50d1-8472-f60aaba86efc}",
-  "newTabMenu": [
-    {
-      "type": "remainingProfiles"
-    }
-  ],
+  "useAcrylicInTabRow": true,
+  "newTabMenu": [{ "type": "remainingProfiles" }],
   "profiles": {
     "defaults": {
       "antialiasingMode": "grayscale",
       "colorScheme": "lovelace",
       "compatibility.reloadEnvironmentVariables": true,
       "cursorShape": "filledBox",
-      "font": {
-        "cellHeight": "1.4",
-        "face": "JetBrainsMono Nerd Font",
-        "size": 12.0,
-        "weight": "medium"
-      },
       "historySize": 12000,
       "intenseTextStyle": "bright",
       "opacity": 90,
       "padding": "4",
       "snapOnInput": true,
       "startingDirectory": "%USERPROFILE%",
-      "suppressApplicationTitle": true
+      "suppressApplicationTitle": true,
+      "font": {
+        "cellHeight": "1.4",
+        "face": "JetBrainsMono Nerd Font",
+        "size": 12.0,
+        "weight": "medium"
+      }
     },
     "list": [
       {
@@ -173,29 +170,6 @@
       "selectionBackground": "#C574DD",
       "white": "#FDFDFD",
       "yellow": "#F2A272"
-    },
-    {
-      "background": "#1A1A1A",
-      "black": "#121212",
-      "blue": "#2B4FFF",
-      "brightBlack": "#666666",
-      "brightBlue": "#5C78FF",
-      "brightCyan": "#5AC8FF",
-      "brightGreen": "#905AFF",
-      "brightPurple": "#5EA2FF",
-      "brightRed": "#BA5AFF",
-      "brightWhite": "#FFFFFF",
-      "brightYellow": "#685AFF",
-      "cursorColor": "#FFFFFF",
-      "cyan": "#28B9FF",
-      "foreground": "#F1F1F1",
-      "green": "#7129FF",
-      "name": "xcad",
-      "purple": "#2883FF",
-      "red": "#A52AFF",
-      "selectionBackground": "#FFFFFF",
-      "white": "#F1F1F1",
-      "yellow": "#3D2AFF"
     }
   ]
 }

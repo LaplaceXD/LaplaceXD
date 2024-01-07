@@ -1,6 +1,6 @@
 # Windows Theme Customization
 
--- Inset theme image here
+![image](https://github.com/LaplaceXD/LaplaceXD/assets/67273056/bdfaa4b0-8fb1-497c-91cd-b7352677232c)
 
 ## Prerequisites
 
@@ -102,4 +102,4 @@ start explorer.exe
 
 1. Download and setup `Nexus`.
 2. Use the given theme above and apply it on `Nexus`.
-3. Import the [backup settings]() for `Nexus`.
+3. Import the [backup settings](https://github.com/LaplaceXD/LaplaceXD/blob/master/dotfiles/nexus-dock.wbk) for `Nexus`.

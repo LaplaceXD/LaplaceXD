@@ -10,6 +10,12 @@ vim.keymap.set("i", "<A-Down>", "<Esc>:m .+1<CR>==gi")
 vim.keymap.set("v", "<A-Up>", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "<A-Down>", ":m '>+1<CR>gv=gv")
 
+-- Extra opts to make the below keybinds work, since
+-- <Esc>j, and <Esc>k are interpreted as <A-j>, and <A-k>, respectively
+-- if you move too fast
+vim.opt.timeoutlen = 1000
+vim.opt.ttimeoutlen = 0
+
 vim.keymap.set("n", "<A-j>", ":m .+1<CR>==")
 vim.keymap.set("n", "<A-k>", ":m .-2<CR>==")
 vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi")

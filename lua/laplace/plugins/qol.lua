@@ -1,6 +1,14 @@
 return {
-	{ "github/copilot.vim", event = { "BufReadPre", "BufNewFile" } },
 	{ "andweeb/presence.nvim", event = "VeryLazy", opts = { main_image = "file" } },
+
+	{
+		"github/copilot.vim",
+		cmd = { "Copilot" },
+		event = { "BufReadPre", "BufNewFile" },
+		keys = {
+			{ "<S-Tab>", "copilot#Accept('<CR>')", expr = true, replace_keycodes = false, mode = "i" },
+		},
+	},
 
 	{
 		"0x00-ketsu/autosave.nvim",

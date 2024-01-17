@@ -29,10 +29,10 @@ vim.keymap.set("i", "<A-d>", "<esc>mayyp`aj:delmarks a<cr>i")
 vim.keymap.set("v", "<A-d>", "y'<Pgv")
 
 -- Indentation
-vim.keymap.set("n", "<Tab>", ">>_")
-vim.keymap.set("n", "<S-Tab>", "<<_")
-vim.keymap.set("v", "<Tab>", "<C->>gv")
-vim.keymap.set("v", "<S-Tab>", "<C-<>gv")
+vim.keymap.set("n", "<Tab>", ">>^")
+vim.keymap.set("n", "<S-Tab>", "<<^")
+vim.keymap.set("v", "<Tab>", ">gv^")
+vim.keymap.set("v", "<S-Tab>", "<gv^")
 
 -- Just removes spaces below a line
 vim.keymap.set("n", "J", "mzJ`z")

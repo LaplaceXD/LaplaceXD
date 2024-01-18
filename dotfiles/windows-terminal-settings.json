@@ -64,7 +64,7 @@
         "split": "right",
         "splitMode": "duplicate"
       },
-      "keys": "ctrl+right"
+      "keys": "ctrl+shift+right"
     },
     {
       "command": {
@@ -72,7 +72,7 @@
         "split": "down",
         "splitMode": "duplicate"
       },
-      "keys": "ctrl+down"
+      "keys": "ctrl+shift+down"
     },
     {
       "command": {
@@ -80,7 +80,7 @@
         "split": "up",
         "splitMode": "duplicate"
       },
-      "keys": "ctrl+up"
+      "keys": "ctrl+shift+up"
     },
     {
       "command": {
@@ -88,7 +88,7 @@
         "split": "left",
         "splitMode": "duplicate"
       },
-      "keys": "ctrl+left"
+      "keys": "ctrl+shift+left"
     }
   ],
   "copyFormatting": "none",

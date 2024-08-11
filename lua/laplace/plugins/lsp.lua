@@ -41,18 +41,6 @@ return {
 						},
 					})
 				end,
-				["clangd"] = function()
-					lsp.clangd.setup({
-						-- Need to setup %UserProfile%/AppData/Local/clangd/config.yaml as well
-						-- CompileFlags:
-						--   Compiler: <same-as-query-driver>
-						capabilities = capabilities,
-						cmd = {
-							"clangd",
-							"--query-driver=C:\\dev\\msys64\\ucrt64\\bin\\gcc,C:\\dev\\msys64\\ucrt64\\bin\\g++",
-						},
-					})
-				end,
 			},
 		})
 	end,

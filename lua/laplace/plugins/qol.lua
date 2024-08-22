@@ -46,6 +46,16 @@ return {
 	},
 
 	{
+		"sindrets/diffview.nvim",
+		cmd = { "DiffviewOpen", "DiffviewFileHistory" },
+		keys = {
+			{ "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Open Diffview", mode = "n" },
+			{ "<leader>gh", "<cmd>DiffviewFileHistory<cr>", desc = "Open Diffview File History", mode = "n" },
+			{ "<leader>gg", "<cmd>DiffviewClose<cr>", desc = "Close Diffview", mode = "n" },
+		},
+	},
+
+	{
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		build = "cd app && yarn install",

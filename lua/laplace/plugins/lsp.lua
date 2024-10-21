@@ -17,13 +17,13 @@ return {
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"clangd",
-				"lua_ls",
-				"gopls",
-				"tsserver",
-				"html",
 				"cssls",
+				"denols",
+				"gopls",
+				"html",
+				"lua_ls",
 				"tailwindcss",
-				"pyright",
+				"ts_ls",
 			},
 			handlers = {
 				function(server)
@@ -39,6 +39,30 @@ return {
 								workspace = { library = { vim.env.VIMRUNTIME } },
 							},
 						},
+					})
+				end,
+				["denols"] = function()
+					lsp.denols.setup({
+						capabilities = capabilities,
+						root_dir = lsp.util.root_pattern("deno.jsonc", "deno.json"),
+					})
+				end,
+				["ts_ls"] = function()
+					lsp.ts_ls.setup({
+						capabilities = capabilities,
+						single_file_support = false,
+						root_dir = lsp.util.root_pattern("package.json"),
+					})
+				end,
+				["tailwindcss"] = function()
+					lsp.tailwindcss.setup({
+						capabilities = capabilities,
+						root_dir = lsp.util.root_pattern(
+							"tailwind.config.js",
+							"tailwind.config.cjs",
+							"tailwind.config.ts",
+							"tailwind.config.mjs"
+						),
 					})
 				end,
 			},

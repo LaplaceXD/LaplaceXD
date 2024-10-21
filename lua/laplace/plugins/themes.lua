@@ -47,8 +47,11 @@ return {
 
 					["@constant"] = { fg = colors.main.darkgray },
 					["@type"] = { fg = colors.main.yellow },
+					["@type.typescript"] = { fg = colors.main.lightgray },
 					["@type.builtin"] = { fg = colors.main.yellow },
 					["@lsp.type.interface.typescriptreact"] = { fg = colors.main.yellow },
+					["@lsp.type.interface.typescript"] = { fg = colors.main.yellow },
+					["@lsp.typemod.variable.defaultLibrary.typescript"] = { fg = colors.main.lightgray },
 					["@type.builtin.tsx"] = { fg = colors.main.yellow },
 					["@type.tsx"] = { fg = colors.main.darkgray },
 					["@type.javascript"] = { fg = colors.main.darkgray },

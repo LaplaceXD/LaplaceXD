@@ -11,8 +11,38 @@ return {
 	config = function()
 		require("mason").setup({ ui = { border = "rounded" } })
 
-		local lsp = require("lspconfig")
-		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		vim.lsp.config("lua_ls", {
+			settings = {
+				Lua = {
+					runtime = { version = "LuaJIT" },
+					diagnostics = { globals = { "vim" } },
+					workspace = { library = { vim.env.VIMRUNTIME } },
+				},
+			},
+		})
+
+		vim.lsp.config("denols", {
+			root_dir = vim.fs.root(0, { "deno.json", "deno.jsonc" }),
+		})
+
+		vim.lsp.config("vtsls", {
+			single_file_support = false,
+			root_dir = function()
+				local is_deno = vim.fs.root(0, { "deno.json", "deno.jsonc" })
+				local is_typescript = vim.fs.root(0, { "package.json", "tsconfig.json", "bun.lockb", "jsconfig.json" })
+
+				return not is_deno and is_typescript
+			end,
+		})
+
+		vim.lsp.config("tailwindcss", {
+			root_dir = vim.fs.root(0, {
+				"tailwind.config.js",
+				"tailwind.config.cjs",
+				"tailwind.config.ts",
+				"tailwind.config.mjs",
+			}),
+		})
 
 		require("mason-lspconfig").setup({
 			ensure_installed = {
@@ -23,48 +53,7 @@ return {
 				"html",
 				"lua_ls",
 				"tailwindcss",
-				"ts_ls",
-			},
-			handlers = {
-				function(server)
-					lsp[server].setup({ capabilities = capabilities })
-				end,
-				["lua_ls"] = function()
-					lsp.lua_ls.setup({
-						capabilities = capabilities,
-						settings = {
-							Lua = {
-								runtime = { version = "LuaJIT" },
-								diagnostics = { globals = { "vim" } },
-								workspace = { library = { vim.env.VIMRUNTIME } },
-							},
-						},
-					})
-				end,
-				["denols"] = function()
-					lsp.denols.setup({
-						capabilities = capabilities,
-						root_dir = lsp.util.root_pattern("deno.jsonc", "deno.json"),
-					})
-				end,
-				["ts_ls"] = function()
-					lsp.ts_ls.setup({
-						capabilities = capabilities,
-						single_file_support = false,
-						root_dir = lsp.util.root_pattern("package.json"),
-					})
-				end,
-				["tailwindcss"] = function()
-					lsp.tailwindcss.setup({
-						capabilities = capabilities,
-						root_dir = lsp.util.root_pattern(
-							"tailwind.config.js",
-							"tailwind.config.cjs",
-							"tailwind.config.ts",
-							"tailwind.config.mjs"
-						),
-					})
-				end,
+				"vtsls",
 			},
 		})
 	end,

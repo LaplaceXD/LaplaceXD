@@ -69,6 +69,14 @@ return {
 	},
 
 	{
+		"chomosuke/typst-preview.nvim",
+		cmd = { "TypstPreview", "TypstPreviewUpdate", "TypstPreviewToggle" },
+		opts = {},
+		ft = { "typst" },
+		version = "1.*",
+	},
+
+	{
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		keys = {

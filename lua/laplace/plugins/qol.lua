@@ -56,16 +56,16 @@ return {
 	},
 
 	{
-		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		build = "cd app && yarn install",
-		init = function()
-			vim.g.mkdp_combine_preview = 1
-			vim.g.mkdp_auto_close = 0
-
-			vim.g.mkdp_filetypes = { "markdown" }
-		end,
+		"MeanderingProgrammer/render-markdown.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
+		cmd = { "RenderMarkdown" },
 		ft = { "markdown" },
+		keys = {
+			{ "<leader>rm", "<cmd>RenderMarkdown<cr>", desc = "Toggle Render Markdown", mode = "n" },
+		},
+		opts = {
+			completions = { lsp = { enabled = true } },
+		},
 	},
 
 	{

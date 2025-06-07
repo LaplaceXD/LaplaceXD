@@ -22,16 +22,24 @@ return {
 		})
 
 		vim.lsp.config("denols", {
-			root_dir = vim.fs.root(0, { "deno.json", "deno.jsonc" }),
+			root_dir = function(_, cb)
+				local deno_dir = vim.fs.root(0, { "deno.json", "deno.jsonc" })
+
+				if deno_dir then
+					cb(deno_dir)
+				end
+			end,
 		})
 
 		vim.lsp.config("vtsls", {
 			single_file_support = false,
-			root_dir = function()
-				local is_deno = vim.fs.root(0, { "deno.json", "deno.jsonc" })
-				local is_typescript = vim.fs.root(0, { "package.json", "tsconfig.json", "bun.lockb", "jsconfig.json" })
+			root_dir = function(_, cb)
+				local deno_dir = vim.fs.root(0, { "deno.json", "deno.jsonc" })
+				local node_dir = vim.fs.root(0, { "package.json", "tsconfig.json", "bun.lockb", "jsconfig.json" })
 
-				return not is_deno and is_typescript
+				if node_dir and deno_dir == nil then
+					cb(node_dir)
+				end
 			end,
 		})
 

@@ -54,14 +54,22 @@ return {
 
 		require("mason-lspconfig").setup({
 			ensure_installed = {
-				"clangd",
-				"cssls",
-				"denols",
-				"gopls",
-				"html",
-				"lua_ls",
-				"tailwindcss",
-				"vtsls",
+				-- Core language servers
+				"clangd", -- C/C++
+				"gopls", -- Go
+				"pyright", -- Python
+				"lua_ls", -- Lua
+				"denols", -- Deno
+				-- Front-end / web
+				"html", -- HTML
+				"cssls", -- CSS
+				"tailwindcss", -- Tailwind utility classes
+				"vtsls", -- TypeScript & JavaScript (for non-Deno projects)
+				-- Extras you almost always want
+				"jsonls", -- JSON schemas & validation
+				"yamlls", -- YAML (e.g. GitHub Actions, K8s manifests)
+				"bashls", -- Bash scripts
+				"dockerls", -- Dockerfile
 			},
 		})
 	end,

@@ -1,3 +1,14 @@
+local web_format = function()
+	local is_deno = vim.fs.root(0, { "deno.json", "deno.jsonc" })
+	local lsp_fallback = "fallback"
+
+	if is_deno then
+		lsp_fallback = "prefer"
+	end
+
+	return { "prettierd", "prettier", stop_after_first = true, lsp_fallback }
+end
+
 return {
 	"stevearc/conform.nvim",
 	cmd = { "ConformInfo" },
@@ -15,23 +26,23 @@ return {
 			cpp = { "clang-format" },
 			go = { "goimports", "gofmt" },
 			python = { "black", "autopep8", stop_after_first = true },
-			javascript = { "prettierd", "prettier", stop_after_first = true },
-			javascriptreact = { "prettierd", "prettier", stop_after_first = true },
-			typescript = { "prettierd", "prettier", stop_after_first = true },
-			typescriptreact = { "prettierd", "prettier", stop_after_first = true },
-			svelte = { "prettierd", "prettier", stop_after_first = true },
-			vue = { "prettierd", "prettier", stop_after_first = true },
-			css = { "prettierd", "prettier", stop_after_first = true },
-			scss = { "prettierd", "prettier", stop_after_first = true },
-			less = { "prettierd", "prettier", stop_after_first = true },
-			html = { "prettierd", "prettier", stop_after_first = true },
-			json = { "prettierd", "prettier", stop_after_first = true },
-			jsonc = { "prettierd", "prettier", stop_after_first = true },
-			yaml = { "prettierd", "prettier", stop_after_first = true },
-			markdown = { "prettierd", "prettier", stop_after_first = true },
-			["markdown.mdx"] = { "prettierd", "prettier", stop_after_first = true },
-			graphql = { "prettierd", "prettier", stop_after_first = true },
-			handlebars = { "prettierd", "prettier", stop_after_first = true },
+			javascript = web_format,
+			javascriptreact = web_format,
+			typescript = web_format,
+			typescriptreact = web_format,
+			svelte = web_format,
+			vue = web_format,
+			css = web_format,
+			scss = web_format,
+			less = web_format,
+			html = web_format,
+			json = web_format,
+			jsonc = web_format,
+			yaml = web_format,
+			markdown = web_format,
+			["markdown.mdx"] = web_format,
+			graphql = web_format,
+			handlebars = web_format,
 			typst = { "typstfmt" },
 		},
 	},

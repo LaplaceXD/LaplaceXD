@@ -82,13 +82,25 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		--- @type [string, string, function][]
 		local handlers = {
 			{ "workspace/symbol", "<leader>ws", vim.lsp.buf.workspace_symbol },
-			{ "textDocument/hover", "K", vim.lsp.buf.hover },
+			{
+				"textDocument/hover",
+				"K",
+				function()
+					vim.lsp.buf.hover({ border = "rounded", max_width = 80, max_height = 20 })
+				end,
+			},
 			{ "textDocument/definition", "gd", vim.lsp.buf.definition },
 			{ "textDocument/references", "gr", vim.lsp.buf.references },
 			{ "textDocument/implementation", "gi", vim.lsp.buf.implementation },
 			{ "textDocument/codeAction", "<leader>ca", vim.lsp.buf.code_action },
 			{ "textDocument/rename", "<leader>rn", vim.lsp.buf.rename },
-			{ "textDocument/signatureHelp", "<leader>h", vim.lsp.buf.signature_help },
+			{
+				"textDocument/signatureHelp",
+				"<leader>h",
+				function()
+					vim.lsp.buf.signature_help({ border = "rounded", max_width = 80, max_height = 20 })
+				end,
+			},
 		}
 
 		local opts = { buffer = args.buf, remap = false }
@@ -105,18 +117,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 			if client:supports_method(method) then
 				vim.keymap.set("n", key, action, opts)
-			end
-		end
-
-		if client:supports_method("textDocument/hover") then
-			vim.lsp.handlers["textDocument/hover"] = function()
-				vim.lsp.buf.hover({ border = "rounded" })
-			end
-		end
-
-		if client:supports_method("textDocument/signatureHelp") then
-			vim.lsp.handlers["textDocument/signatureHelp"] = function()
-				vim.lsp.buf.signature_help({ border = "rounded" })
 			end
 		end
 	end,

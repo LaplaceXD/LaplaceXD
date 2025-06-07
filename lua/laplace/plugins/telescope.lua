@@ -78,7 +78,11 @@ return {
 				local lsp_opts = { buffer = args.buf, remap = false }
 				local client = vim.lsp.get_client_by_id(args.data.client_id)
 
-				if client.supports_method("textDocument/references") then
+				if client == nil then
+					return
+				end
+
+				if client:supports_method("textDocument/references") then
 					vim.keymap.set("n", "gr", function()
 						builtin.lsp_references({
 							include_declaration = false,
@@ -88,13 +92,13 @@ return {
 					end, lsp_opts)
 				end
 
-				if client.supports_method("textDocument/implementation") then
+				if client:supports_method("textDocument/implementation") then
 					vim.keymap.set("n", "gi", function()
 						builtin.lsp_implementations({ trim_text = true })
 					end, lsp_opts)
 				end
 
-				if client.supports_method("workspace/symbol") then
+				if client:supports_method("workspace/symbol") then
 					vim.keymap.set("n", "<leader>ws", function()
 						vim.ui.input({ prompt = "Symbol > " }, function(query)
 							builtin.lsp_workspace_symbols({ query = query })

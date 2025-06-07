@@ -68,13 +68,18 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 -- Code Diagnostics
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
-vim.keymap.set("n", "[d", vim.diagnostic.goto_next)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "[d", function()
+	vim.diagnostic.jump({ count = 1, float = true })
+end)
+vim.keymap.set("n", "]d", function()
+	vim.diagnostic.jump({ count = -1, float = true })
+end)
 
 -- LSP Keymaps
 vim.api.nvim_create_autocmd("LspAttach", {
 	desc = "LSP Actions",
 	callback = function(args)
+		--- @type [string, string, function][]
 		local handlers = {
 			{ "workspace/symbol", "<leader>ws", vim.lsp.buf.workspace_symbol },
 			{ "textDocument/hover", "K", vim.lsp.buf.hover },
@@ -89,26 +94,30 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { buffer = args.buf, remap = false }
 		local client = vim.lsp.get_client_by_id(args.data.client_id)
 
+		if client == nil then
+			return
+		end
+
 		-- unpack is still used in 5.1 which is used in nvim internally even though its deprecated
 		table.unpack = table.unpack or unpack
 		for _, mapping in ipairs(handlers) do
 			local method, key, action = table.unpack(mapping)
 
-			if client.supports_method(method) then
+			if client:supports_method(method) then
 				vim.keymap.set("n", key, action, opts)
 			end
 		end
 
-		if client.supports_method("textDocument/hover") then
-			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-				border = "rounded",
-			})
+		if client:supports_method("textDocument/hover") then
+			vim.lsp.handlers["textDocument/hover"] = function()
+				vim.lsp.buf.hover({ border = "rounded" })
+			end
 		end
 
-		if client.supports_method("textDocument/signatureHelp") then
-			vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-				border = "rounded",
-			})
+		if client:supports_method("textDocument/signatureHelp") then
+			vim.lsp.handlers["textDocument/signatureHelp"] = function()
+				vim.lsp.buf.signature_help({ border = "rounded" })
+			end
 		end
 	end,
 })

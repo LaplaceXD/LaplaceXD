@@ -1,12 +1,11 @@
 local web_format = function()
 	local is_deno = vim.fs.root(0, { "deno.json", "deno.jsonc" })
-	local lsp_fallback = "fallback"
 
 	if is_deno then
-		lsp_fallback = "prefer"
+		return {}
 	end
 
-	return { "prettierd", "prettier", stop_after_first = true, lsp_fallback }
+	return { "prettierd", "prettier", stop_after_first = true }
 end
 
 return {

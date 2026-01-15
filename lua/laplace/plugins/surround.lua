@@ -14,7 +14,7 @@ return {
 
 	{
 		"windwp/nvim-autopairs",
-		event = { "BufReadPre", "BufNewFile" },
+		event = "BufEnter",
 		opts = {},
 	},
 

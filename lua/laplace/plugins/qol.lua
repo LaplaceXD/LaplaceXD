@@ -2,11 +2,11 @@ return {
 	{ "andweeb/presence.nvim", event = "VeryLazy", opts = { main_image = "file" } },
 
 	{
-		"github/copilot.vim",
-		cmd = { "Copilot" },
-		event = { "BufReadPre", "BufNewFile" },
+		"Exafunction/codeium.vim",
+		cmd = { "Codeium" },
+		event = "BufEnter",
 		keys = {
-			{ "<S-Tab>", "copilot#Accept('<CR>')", expr = true, replace_keycodes = false, mode = "i" },
+			{ "<S-Tab>", "codeium#Accept()", expr = true, replace_keycodes = false, mode = "i" },
 		},
 	},
 
@@ -34,7 +34,7 @@ return {
 	{
 		"lewis6991/gitsigns.nvim",
 		opts = { current_line_blame_opts = { delay = 250 } },
-		event = { "BufReadPre", "BufNewFile" },
+		event = "BufEnter",
 		keys = {
 			{
 				"<leader>gb",

@@ -46,12 +46,11 @@ return {
 	},
 
 	{
-		"sindrets/diffview.nvim",
-		cmd = { "DiffviewOpen", "DiffviewFileHistory" },
+		"kdheepak/lazygit.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		cmd = { "LazyGit", "LazyGitConfig", "LazyGitCurrentFile", "LazyGitFilter", "LazyGitFilterCurrentFile" },
 		keys = {
-			{ "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "Open Diffview", mode = "n" },
-			{ "<leader>gh", "<cmd>DiffviewFileHistory<cr>", desc = "Open Diffview File History", mode = "n" },
-			{ "<leader>gg", "<cmd>DiffviewClose<cr>", desc = "Close Diffview", mode = "n" },
+			{ "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit", mode = "n" },
 		},
 	},
 

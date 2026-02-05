@@ -5,7 +5,7 @@ local web_format = function()
 		return {}
 	end
 
-	return { "prettierd", "prettier", stop_after_first = true }
+	return { "oxfmt", "prettierd", "prettier", stop_after_first = true }
 end
 
 return {

@@ -5,6 +5,12 @@ local web_format = function()
 		return {}
 	end
 
+	local is_prettier = vim.fs.root(0, { ".prettierrc.json" })
+
+	if is_prettier then
+		return { "prettierd", "prettier", stop_after_first = true }
+	end
+
 	return { "oxfmt", "prettierd", "prettier", stop_after_first = true }
 end
 

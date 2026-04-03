@@ -1,9 +1,15 @@
+-- requires a local installation of treesitter cli via:
+-- > sudo apt update && sudo apt install tree-sitter-cli
+--
+-- if that doesn't work, use cargo:
+-- > cargo install tree-sitter-cli
 return {
 	"nvim-treesitter/nvim-treesitter",
-	event = "BufEnter",
+	branch = "main",
+	lazy = false,
 	build = ":TSUpdate",
-	opts = {
-		ensure_installed = {
+	config = function()
+		local parsers = {
 			"html",
 			"css",
 			"javascript",
@@ -17,17 +23,30 @@ return {
 			"json",
 			"jsonc",
 			"lua",
-		},
+		}
 
-		sync_install = false,
-		auto_install = true,
+		require("nvim-treesitter").install(parsers)
 
-		highlight = {
-			enable = true,
-			additional_vim_regex_highlighting = false,
-		},
-	},
-	config = function(_, opts)
-		require("nvim-treesitter.configs").setup(opts)
+		vim.api.nvim_create_autocmd("FileType", {
+			callback = function(args)
+				local buf, filetype = args.buf, args.match
+
+				local language = vim.treesitter.language.get_lang(filetype)
+				if not language then
+					return
+				end
+
+				-- check if parser exists and load it
+				if not vim.treesitter.language.add(language) then
+					return
+				end
+
+				-- enables syntax highlighting and other treesitter features
+				vim.treesitter.start(buf, language)
+
+				-- enables treesitter based indentation
+				vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+			end,
+		})
 	end,
 }

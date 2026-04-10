@@ -33,7 +33,12 @@ return {
 
 	{
 		"lewis6991/gitsigns.nvim",
-		opts = { current_line_blame_opts = { delay = 250 } },
+		opts = {
+			current_line_blame_opts = {
+				enabled = true,
+				delay = 250,
+			},
+		},
 		event = "BufEnter",
 		keys = {
 			{

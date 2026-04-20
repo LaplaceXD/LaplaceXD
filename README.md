@@ -1,5 +1,8 @@
 # Hey there, stranger! 👋
 
+[<img alt="LeetCode" src="https://img.shields.io/badge/LeetCode--_.svg?style=social&logo=leetcode" />][leetcode]
+[<img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn--_.svg?style=social&logo=linkedin" />][linkedin]
+
 ```text
 ┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
 │ PROMPT> Introduce Jonh Alexis Buot (sometimes mispelled as John or Jhon). Make no mistakes.                      │
@@ -12,9 +15,6 @@ I build across **frontend**, **backend**, **AI workflows**, **infra**, **tooling
 
 > Fell into the rabbit hole of Software Engineering and never fully recovered.
 > The symptoms include over-optimization, too many browser tabs, and emotional damage from package managers.
-
-[<img alt="LeetCode" src="https://img.shields.io/badge/LeetCode--_.svg?style=social&logo=leetcode" />][leetcode]
-[<img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn--_.svg?style=social&logo=linkedin" />][linkedin]
 
 ### 📖 Fun Facts
 

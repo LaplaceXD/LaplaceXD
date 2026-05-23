@@ -49,6 +49,7 @@ return {
 			graphql = web_format,
 			handlebars = web_format,
 			typst = { "typstfmt" },
+			rust = { "rustfmt" },
 		},
 	},
 	config = function(_, opts)

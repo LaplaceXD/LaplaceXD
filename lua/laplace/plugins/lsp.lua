@@ -60,6 +60,7 @@ return {
 				"pyright", -- Python
 				"lua_ls", -- Lua
 				"denols", -- Deno
+				"rust_analyzer", -- Rust
 				-- Front-end / web
 				"html", -- HTML
 				"cssls", -- CSS

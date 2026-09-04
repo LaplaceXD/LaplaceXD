@@ -12,8 +12,13 @@ return {
 
 	{
 		"0x00-ketsu/autosave.nvim",
-		event = { "CursorHold", "CursorHoldI", "BufLeave", "FocusLost", "ExitPre" },
-		opts = { events = { "CursorHold", "CursorHoldI", "BufLeave", "FocusLost", "ExitPre" } },
+		event = { "CursorHold", "CursorHoldI", "FocusLost", "ExitPre" },
+		opts = {
+			events = { "CursorHold", "CursorHoldI", "FocusLost", "ExitPre" },
+			conditions = {
+				filetype_is_not = { "harpoon" },
+			},
+		},
 	},
 
 	{

@@ -1,14 +1,20 @@
-local web_format = function()
-	local is_deno = vim.fs.root(0, { "deno.json", "deno.jsonc" })
+local js_format = function(bufnr)
+	local is_ox = vim.fs.root(bufnr, { ".oxfmtrc.json", ".oxfmtrc.jsonc", "oxfmt.config.ts", "oxfmt.config.mts" })
 
-	if is_deno then
-		return {}
+	if is_ox then
+		return { "oxfmt" }
 	end
 
 	local is_prettier = vim.fs.root(0, { ".prettierrc.json" })
 
 	if is_prettier then
 		return { "prettierd", "prettier", stop_after_first = true }
+	end
+
+	local is_deno = vim.fs.root(bufnr, { "deno.json", "deno.jsonc" })
+
+	if is_deno then
+		return { "deno_fmt" }
 	end
 
 	return { "oxfmt", "prettierd", "prettier", stop_after_first = true }
@@ -31,23 +37,23 @@ return {
 			cpp = { "clang-format" },
 			go = { "goimports", "gofmt" },
 			python = { "black", "autopep8", stop_after_first = true },
-			javascript = web_format,
-			javascriptreact = web_format,
-			typescript = web_format,
-			typescriptreact = web_format,
-			svelte = web_format,
-			vue = web_format,
-			css = web_format,
-			scss = web_format,
-			less = web_format,
-			html = web_format,
-			json = web_format,
-			jsonc = web_format,
-			yaml = web_format,
-			markdown = web_format,
-			["markdown.mdx"] = web_format,
-			graphql = web_format,
-			handlebars = web_format,
+			javascript = js_format,
+			javascriptreact = js_format,
+			typescript = js_format,
+			typescriptreact = js_format,
+			svelte = js_format,
+			vue = js_format,
+			css = js_format,
+			scss = js_format,
+			less = js_format,
+			html = js_format,
+			json = js_format,
+			jsonc = js_format,
+			yaml = js_format,
+			markdown = js_format,
+			["markdown.mdx"] = js_format,
+			graphql = js_format,
+			handlebars = js_format,
 			typst = { "typstfmt" },
 			rust = { "rustfmt" },
 		},
@@ -57,7 +63,7 @@ return {
 		conform.setup(opts)
 
 		vim.keymap.set("n", "<leader>f", function()
-			conform.format({ async = true, lsp_fallback = true })
+			conform.format({ async = true, lsp_fallback = "fallback" })
 		end)
 	end,
 }

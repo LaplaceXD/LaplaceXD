@@ -4,12 +4,16 @@ return {
 	cmd = { "Mason" },
 	build = ":MasonUpdate",
 	dependencies = {
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
+		"mason-org/mason.nvim",
+		"mason-org/mason-lspconfig.nvim",
 		"hrsh7th/cmp-nvim-lsp",
 	},
 	config = function()
 		require("mason").setup({ ui = { border = "rounded" } })
+
+		vim.lsp.config("*", {
+			capabilities = require("cmp_nvim_lsp").default_capabilities(),
+		})
 
 		vim.lsp.config("lua_ls", {
 			settings = {
@@ -21,35 +25,22 @@ return {
 			},
 		})
 
-		vim.lsp.config("denols", {
-			root_dir = function(_, cb)
-				local deno_dir = vim.fs.root(0, { "deno.json", "deno.jsonc" })
-
-				if deno_dir then
-					cb(deno_dir)
-				end
-			end,
-		})
-
 		vim.lsp.config("vtsls", {
 			single_file_support = false,
-			root_dir = function(_, cb)
-				local deno_dir = vim.fs.root(0, { "deno.json", "deno.jsonc" })
-				local node_dir = vim.fs.root(0, { "package.json", "tsconfig.json", "bun.lockb", "jsconfig.json" })
+			root_dir = function(bufnr, cb)
+				local deno_dir = vim.fs.root(bufnr, { "deno.json", "deno.jsonc", "deno.lock" })
+				local node_dir = vim.fs.root(bufnr, {
+					"package.json",
+					"tsconfig.json",
+					"jsconfig.json",
+					"bun.lockb",
+					"bun.lock",
+				})
 
 				if node_dir and deno_dir == nil then
 					cb(node_dir)
 				end
 			end,
-		})
-
-		vim.lsp.config("tailwindcss", {
-			root_dir = vim.fs.root(0, {
-				"tailwind.config.js",
-				"tailwind.config.cjs",
-				"tailwind.config.ts",
-				"tailwind.config.mjs",
-			}),
 		})
 
 		require("mason-lspconfig").setup({

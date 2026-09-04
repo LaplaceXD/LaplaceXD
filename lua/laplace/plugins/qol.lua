@@ -2,7 +2,7 @@ return {
 	{ "andweeb/presence.nvim", event = "VeryLazy", opts = { main_image = "file" } },
 
 	{
-		"Exafunction/codeium.vim",
+		"Exafunction/windsurf.vim",
 		cmd = { "Codeium" },
 		event = "BufEnter",
 		keys = {
@@ -92,10 +92,10 @@ return {
 			local trouble = require("trouble")
 
 			vim.keymap.set("n", "<leader>xx", function()
-				trouble.toggle("workspace_diagnostics")
+				trouble.toggle("diagnostics")
 			end)
 			vim.keymap.set("n", "<leader>xd", function()
-				trouble.toggle("document_diagnostics")
+				trouble.toggle({ mode = "diagnostics", filter = { buf = 0 } })
 			end)
 			vim.keymap.set("n", "<leader>xr", function()
 				trouble.toggle("lsp_references")

@@ -1,7 +1,4 @@
 -- requires a local installation of treesitter cli via:
--- > sudo apt update && sudo apt install tree-sitter-cli
---
--- if that doesn't work, use cargo:
 -- > cargo install tree-sitter-cli
 return {
 	"nvim-treesitter/nvim-treesitter",
@@ -21,11 +18,11 @@ return {
 			"markdown",
 			"markdown_inline",
 			"json",
-			"jsonc",
 			"lua",
 		}
 
 		require("nvim-treesitter").install(parsers)
+        vim.treesitter.language.register("json", "jsonc")
 
 		vim.api.nvim_create_autocmd("FileType", {
 			callback = function(args)

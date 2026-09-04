@@ -5,7 +5,26 @@ local js_format = function(bufnr)
 		return { "oxfmt" }
 	end
 
-	local is_prettier = vim.fs.root(0, { ".prettierrc.json" })
+	local is_prettier = vim.fs.root(bufnr, {
+		".prettierrc",
+		".prettierrc.json",
+		".prettierrc.yml",
+		".prettierrc.yaml",
+		".prettierrc.json5",
+		".prettierrc.js",
+		".prettierrc.cjs",
+		".prettierrc.mjs",
+		".prettierrc.ts",
+		".prettierrc.cts",
+		".prettierrc.mts",
+		".prettierrc.toml",
+		"prettier.config.js",
+		"prettier.config.cjs",
+		"prettier.config.mjs",
+		"prettier.config.ts",
+		"prettier.config.cts",
+		"prettier.config.mts",
+	})
 
 	if is_prettier then
 		return { "prettierd", "prettier", stop_after_first = true }
@@ -63,7 +82,7 @@ return {
 		conform.setup(opts)
 
 		vim.keymap.set("n", "<leader>f", function()
-			conform.format({ async = true, lsp_fallback = "fallback" })
+			conform.format({ async = true, lsp_format = "fallback" })
 		end)
 	end,
 }

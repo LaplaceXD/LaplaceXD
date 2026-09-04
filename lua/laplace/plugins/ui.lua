@@ -10,11 +10,9 @@ return {
 	-- },
 
 	{
-		"stevearc/dressing.nvim",
+		"folke/snacks.nvim",
 		event = "VeryLazy",
-		opts = {
-			input = { relative = "editor" },
-		},
+		opts = { input = {} },
 	},
 
 	{

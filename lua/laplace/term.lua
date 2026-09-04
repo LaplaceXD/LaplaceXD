@@ -40,14 +40,12 @@ vim.api.nvim_create_autocmd("FileType", {
 		"yaml",
 		"toml",
 		"json",
+		"jsonc",
 		"markdown",
-		"md",
 		"typescript",
 		"typescriptreact",
 		"javascript",
 		"javascriptreact",
-		"jsx",
-		"tsx",
 		"svelte",
 	},
 })
@@ -58,7 +56,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Hightlight selection on yank",
 	pattern = "*",
 	callback = function()
-		vim.highlight.on_yank({ higroup = "Visual", timeout = 300 })
+		vim.hl.on_yank({ higroup = "Visual", timeout = 300 })
 	end,
 })
 

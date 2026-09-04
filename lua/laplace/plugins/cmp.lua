@@ -14,6 +14,7 @@ return {
 		"saadparwaiz1/cmp_luasnip",
 		"L3MON4D3/LuaSnip",
 		"rafamadriz/friendly-snippets",
+		"petertriho/cmp-git",
 	},
 	config = function()
 		local ok, loaders = pcall(require, "luasnip.loaders.from_vscode")
@@ -91,10 +92,6 @@ return {
 			},
 		})
 
-		cmp.setup.filetype("gitcommit", {
-			sources = cmp.config.sources({ { name = "cmp_git" }, { name = "buffer" } }),
-		})
-
 		cmp.setup.cmdline({ "/", "?" }, {
 			mapping = cmp.mapping.preset.cmdline(),
 			sources = { { name = "buffer" } },
@@ -103,6 +100,11 @@ return {
 		cmp.setup.cmdline(":", {
 			mapping = cmp.mapping.preset.cmdline(),
 			sources = cmp.config.sources({ { name = "path" }, { name = "cmdline" } }),
+		})
+
+		require("cmp_git").setup()
+		cmp.setup.filetype("gitcommit", {
+			sources = cmp.config.sources({ { name = "git" }, { name = "buffer" } }),
 		})
 	end,
 }

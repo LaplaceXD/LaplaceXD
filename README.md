@@ -4,27 +4,24 @@
 [<img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn--_.svg?style=social&logo=linkedin" />][linkedin]
 
 ```text
-┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│ PROMPT> Introduce Jonh Alexis Buot (sometimes mispelled as John or Jhon). Make no mistakes.                      │
-└──────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+PROMPT> Introduce Jonh Alexis Buot (sometimes misspelled as John or Jhon). Make no mistakes.
 ```
 
-Hi, I'm **Lex** — software engineer, rabbit-hole enthusiast, and professional collector of side quests disguised as tech stacks.
+Hi, I'm **Lex**, a software engineer who gets interested in way too many things.
 
-I build across **frontend**, **backend**, **AI workflows**, **infra**, **tooling**, and occasionally whatever part of the stack is currently screaming the loudest.
+I work on **frontend**, **backend**, **AI workflows**, **infra**, and **tooling**. I like building things and figuring out how they work, so I tend to end up working on different parts of the stack.
 
-> Fell into the rabbit hole of Software Engineering and never fully recovered.
-> The symptoms include over-optimization, too many browser tabs, and emotional damage from package managers.
+> Fell into the rabbit hole of Software Engineering and just kept going.
 
 ### 📖 Fun Facts
 
 - 🐈 I like cats, maths, and everything nice.
-- 🎮 I like playing during my freetime.
-- 📸 I also like photography and editing when I want to pretend I have hobbies outside of code.
-- 🍜 Big fan of road trips, food trips, and any plan that accidentally becomes both.
+- 🎮 I like playing games in my free time.
+- 📸 I also like photography and editing whenever I feel like doing something outside of code.
+- 🍜 I like road trips and food trips. Even better if I get to do both.
 - 🕳️ I get interested in way too many things and fall into way too many rabbit holes.
-- 📦 Currently on the verge of collapse due to the spiritual and emotional weight of `npm`.
-- 🐛 I create bugs, fix bugs, and occasionally stare at them until they fix themselves out of fear.
+- 📦 Currently trying to survive `npm`.
+- 🐛 I create bugs. I also fix them. Sometimes they're the same bugs.
 
 ### ⬆ Future Plans
 
@@ -48,7 +45,7 @@ I build across **frontend**, **backend**, **AI workflows**, **infra**, **tooling
 [<img alt="LeetCode" src="https://img.shields.io/badge/LeetCode--_.svg?style=social&logo=leetcode" />][leetcode]
 [<img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn--_.svg?style=social&logo=linkedin" />][linkedin]
 
-_Want to talk, collaborate, or summon me for a project?_
+_Want to talk or work on something together?_
 📫 **[ja.buotph@gmail.com](mailto:ja.buotph@gmail.com)**
 
 [linkedin]: https://www.linkedin.com/in/laplace-xd/
